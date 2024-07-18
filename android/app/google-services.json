@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "221605114829",
+    "project_id": "virtuallearningapp-bbc01",
+    "storage_bucket": "virtuallearningapp-bbc01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221605114829:android:e9b7ce90c58e2cd3d80a84",
+        "android_client_info": {
+          "package_name": "com.example.virtuallearningapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaLACLiBFPjUO-X1AyinYWFS5FpOAT7kQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
