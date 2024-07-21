@@ -1,54 +1,44 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:virtuallearningapp/components/my_button.dart';
 import 'package:virtuallearningapp/components/my_textfield.dart';
 import 'package:virtuallearningapp/components/square_tile.dart';
+import 'package:virtuallearningapp/pages/forgot_password_page.dart';
+import 'package:virtuallearningapp/services/auth_services.dart';
 
 class LoginPage extends StatefulWidget {
-  final Function()? onTap;
   const LoginPage({super.key, required this.onTap});
+
+  final Function()? onTap;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // text editing controllers
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
-  // sign user in method
-  void signUserIn() async {
-    // show loading circle
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+  final AuthService _authService = AuthService();
 
-    // try sign in
+  void signUserIn() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+      UserCredential? userCredential =
+          await _authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
       );
-      // pop the loading circle
-      // ignore: use_build_context_synchronously
-      Navigator.pop(context);
+      if (userCredential != null) {
+        }
     } on FirebaseAuthException catch (e) {
-      // pop the loading circle
-      // ignore: use_build_context_synchronously
-      Navigator.pop(context);
-      //show error message
+      // Pop the loading circle
+      // Show error message
       showErrorMessage(e.code);
     }
   }
 
-  // error message to user
   void showErrorMessage(String message) {
     showDialog(
       context: context,
@@ -69,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: const Color.fromARGB(255, 192, 139, 96),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -77,16 +67,11 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
-
-                // logo
                 const Icon(
                   Icons.lock,
                   size: 40,
                 ),
-
                 const SizedBox(height: 25),
-
-                // Hello welcome to our app
                 Text(
                   'HELLO😁 WELCOME TO OUR APP ',
                   style: TextStyle(
@@ -94,52 +79,44 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 16,
                   ),
                 ),
-
                 const SizedBox(height: 25),
-
-                // email textfield
                 MyTextField(
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
                 ),
-
                 const SizedBox(height: 10),
-
-                // password textfield
                 MyTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
-
                 const SizedBox(height: 10),
-
-                // forgot password?
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ForgotPasswordPage(),
+                          ));
+                        },
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: Colors.grey[600]),
+                        ),
                       ),
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 25),
-
-                // sign in button
                 MyButton(
                   text: "Log Me In",
                   onTap: signUserIn,
                 ),
-
                 const SizedBox(height: 50),
-
-                // or continue with
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -166,26 +143,28 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 50),
-
-                // google sign in buttons
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // google button
-                    SquareTile(imagePath: 'lib/images/google.png'),
+                    SquareTile(
+                      onTap: () async {
+                        UserCredential? userCredential =
+                            await _authService.signInWithGoogle();
+                        if (userCredential != null) {
+                          // Handle successful sign-in
+                        }
+                      },
+                      imagePath: 'lib/images/google.png',
+                    ),
                   ],
                 ),
-
                 const SizedBox(height: 50),
-
-                // not a member? register now
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Not account?',
+                      'No account?',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),

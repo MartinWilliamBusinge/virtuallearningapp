@@ -17,7 +17,9 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeNotifier(ThemeData.light())),
-        ChangeNotifierProvider(create: (_) => LanguageNotifier(const Locale('en', 'US'))), // Default to English
+        ChangeNotifierProvider(
+            create: (_) => LanguageNotifier(
+                const Locale('en', 'US'))), // Default to English
       ],
       child: const MyApp(),
     ),
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<ThemeNotifier,LanguageNotifier>(
+    return Consumer2<ThemeNotifier, LanguageNotifier>(
       builder: (context, themeNotifier, languageNotifier, child) {
         return MaterialApp(
           theme: themeNotifier.getTheme(),
