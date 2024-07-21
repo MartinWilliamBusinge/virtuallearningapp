@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
     return Consumer2<ThemeNotifier,LanguageNotifier>(
       builder: (context, themeNotifier, languageNotifier, child) {
         return MaterialApp(
+          
           theme: themeNotifier.getTheme(),
           locale: languageNotifier.currentLocale,
           supportedLocales: const [
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           ],
           debugShowCheckedModeBanner: false,
           home: const AuthPage(), // Start with the authentication page
+
         );
       },
     );

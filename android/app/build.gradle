@@ -64,3 +64,13 @@ android {
         minSdkVersion 23
     }
 }     
+repositories {
+    google()
+    mavencentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.build:gradle:8.5.1'
+    // Add any other dependencies here if needed
+}
