@@ -12,7 +12,20 @@
           "package_name": "com.example.virtuallearningapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "221605114829-qmd329tv9edaq2i5u9hk6j1lm9eg57gb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.virtuallearningapp",
+            "certificate_hash": "0c1e045704b01b9032c2f2d07ee74aecd6fb898c"
+          }
+        },
+        {
+          "client_id": "221605114829-6ua8dalrtda4478o5o853vklkcmmfun4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCaLACLiBFPjUO-X1AyinYWFS5FpOAT7kQ"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221605114829-6ua8dalrtda4478o5o853vklkcmmfun4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "221605114829-4o5cef3losb5knsglph9ec2osk9hsqta.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.virtuallearningapp"
+              }
+            }
+          ]
         }
       }
     }

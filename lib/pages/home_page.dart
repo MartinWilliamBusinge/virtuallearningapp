@@ -1,17 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:virtuallearningapp/components/drawer.dart';
 import 'package:virtuallearningapp/components/settings.dart';
-import 'package:virtuallearningapp/pages/downloads_page.dart';
 import 'package:virtuallearningapp/pages/chat_page.dart';
-import 'package:virtuallearningapp/pages/profile_page.dart';
+import 'package:virtuallearningapp/pages/gemini_chat_page.dart';
 import 'package:virtuallearningapp/pages/user_home.dart';
-import 'package:virtuallearningapp/pages/year_one.dart';
-import 'package:virtuallearningapp/pages/year_two.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -20,9 +19,9 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const UserHomePage(),
-    const ChatPage(),
+     ChatPage(),
     const SettingsPage(),
-    const ProfilePage(),
+    const GeminiChatPage(),
   ];
 
   int _selectedIndex = 0;
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromARGB(255, 61, 37, 102),
         elevation: 0,
         title:
-            const Text("     V I R T U A L       L E A R N I N G       A P P"),
+            const Text("V I R T U A L  L E A R N I N G  A P P"),
         actions: [
           IconButton(
             onPressed: signUserOut,
@@ -55,55 +54,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      drawer: Drawer(
-        child: Container(
-          color: const Color.fromARGB(255, 78, 59, 114),
-          child: ListView(
-            children:  [
-              const DrawerHeader(
-                child: Center(
-                    child: Text(
-                  "W E L C O M E",
-                  style: TextStyle(fontSize: 25),
-                )),
-              ),
-              ListTile(
-                leading: const Icon(Icons.one_k),
-                title: const Text(
-                  "DOWNLOADS ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const DownloadPage()));
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.first_page),
-                title: const Text(
-                  "Y E A R  O N E  ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const YearOnePage()));
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.one_k),
-                title: const Text(
-                  "Y E A R  T W O ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const YearTwoPage()));
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      drawer: const MyDrawer(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
@@ -112,9 +63,8 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.message), label: "Chat"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.wechat_rounded), label: "Chat GPT"),
         ],
       ),
     );
