@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:virtuallearningapp/components/drawer.dart';
-import 'package:virtuallearningapp/components/settings.dart';
+import 'package:virtuallearningapp/pages/account_page.dart';
 import 'package:virtuallearningapp/pages/chat_page.dart';
 import 'package:virtuallearningapp/pages/gemini_chat_page.dart';
 import 'package:virtuallearningapp/pages/user_home.dart';
@@ -15,25 +16,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int index = 0;
   final user = FirebaseAuth.instance.currentUser!;
 
   final List<Widget> _pages = [
     const UserHomePage(),
-     ChatPage(),
-    const SettingsPage(),
+    ChatPage(),
+    AccountPage(),
     const GeminiChatPage(),
   ];
-
-  int _selectedIndex = 0;
 
   // sign user out method
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
 
-  void _navigateBottomBar(int index) {
+  void _navigateBottomBar(int newIndex) {
     setState(() {
-      _selectedIndex = index;
+      index = newIndex;
     });
   }
 
@@ -44,8 +44,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 61, 37, 102),
         elevation: 0,
-        title:
-            const Text("V I R T U A L  L E A R N I N G  A P P"),
+        title: const Text("VIRTUAL LEARNING APP"),
         actions: [
           IconButton(
             onPressed: signUserOut,
@@ -55,17 +54,27 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MyDrawer(),
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Chat"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
-          BottomNavigationBarItem(icon: Icon(Icons.wechat_rounded), label: "Chat GPT"),
-        ],
+      body: _pages[index],
+      bottomNavigationBar: Container(
+        color: Colors.deepPurple,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+          child: GNav(
+            gap: 8,
+            backgroundColor: Colors.deepPurple,
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.grey.shade800,
+            padding: const EdgeInsets.all(16),
+            onTabChange: _navigateBottomBar,
+            tabs: const [
+              GButton(icon: Icons.home, text: 'Home'),
+              GButton(icon: Icons.message, text: "Chat"),
+              GButton(icon: Icons.person, text: "Profile"),
+              GButton(icon: Icons.wechat_rounded, text: "Chat Bot"),
+            ],
+          ),
+        ),
       ),
     );
   }

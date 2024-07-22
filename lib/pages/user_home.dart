@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:virtuallearningapp/components/my_button.dart';
+import 'package:virtuallearningapp/pages/contact_us_page.dart';
 
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
@@ -6,20 +8,7 @@ class UserHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Quick Learn App',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 28,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Colors.deepPurple,
-        elevation: 10,
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.orange.shade200,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -31,7 +20,7 @@ class UserHomePage extends StatelessWidget {
                   'HELLO WELCOME TO QUICK LEARN APP \u{1F600} \n FEEL AT HOME \u{2764}\u{FE0F}',
                   style: TextStyle(
                     fontFamily: 'Roboto',
-                    fontSize: 26,
+                    fontSize: 23,
                     fontWeight: FontWeight.bold,
                     color: Colors.deepPurple,
                   ),
@@ -78,32 +67,13 @@ class UserHomePage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              const Center(
-                child: Text(
-                  'Contact Us',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown, // Brown color for "Contact Us"
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  color: Colors.grey[200],
-                  child: const Text(
-                    'Email us: jessicanakirijja90@gmail.com\n Call us: +256 760 421 435 / +256 753 031 959',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 16,
-                      color: Colors.brown, // Brown color for contact information
-                    ),
-                  ),
-                ),
+              MyButton(
+                text: "C O N T A C T     U S",
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ContactUsPage(),
+                  ));
+                },
               ),
             ],
           ),
@@ -112,5 +82,3 @@ class UserHomePage extends StatelessWidget {
     );
   }
 }
-
-void main() => runApp(const MaterialApp(home: UserHomePage()));
