@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:virtuallearningapp/components/my_list_tile.dart';
+import 'package:virtuallearningapp/components/settings.dart';
 import 'package:virtuallearningapp/pages/downloads_page.dart';
-import 'package:virtuallearningapp/pages/profile_page.dart';
 import 'package:virtuallearningapp/pages/year_one.dart';
 import 'package:virtuallearningapp/pages/year_two.dart';
 
@@ -18,14 +18,14 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color.fromARGB(255, 78, 59, 114),
+        color: (Colors.deepPurple.shade400),
         child: Column(
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               child: Center(
                 child: Text(
-                  "W E L C O M E",
-                  style: TextStyle(fontSize: 25),
+                  "       “REMEMBER\"\n \nBeing a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
+                  style: TextStyle(fontSize: 18, color: Colors.brown.shade900),
                 ),
               ),
             ),
@@ -39,7 +39,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   MyListTile(
                     icon: Icons.download_rounded,
-                    text: "DOWNLOADS ",
+                    text: "D O W N L O A D S ",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const DownloadPage(),
@@ -66,10 +66,10 @@ class MyDrawer extends StatelessWidget {
                   ),
                   MyListTile(
                     icon: Icons.person,
-                    text: "P R O F I L E ",
+                    text: " S E T T I N G S ",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ProfilePage(),
+                        builder: (context) => const SettingsPage(),
                       ));
                     },
                   ),

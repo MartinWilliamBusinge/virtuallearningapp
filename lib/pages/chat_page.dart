@@ -14,8 +14,9 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange.shade200,
       appBar: AppBar(
-        title: const Center(child: Text("CHAT SCREEN")),
+        title: const Center(child: Text(" C H A T   S C R E E N ")),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,

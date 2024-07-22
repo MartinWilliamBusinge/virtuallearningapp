@@ -33,7 +33,9 @@ class _GeminiChatPageState extends State<GeminiChatPage> {
         .orderBy('date')
         .get();
     setState(() {
-      _messages.addAll(snapshot.docs.map((doc) => Message.fromJson(doc.data() as Map<String, dynamic>)).toList());
+      _messages.addAll(snapshot.docs
+          .map((doc) => Message.fromJson(doc.data() as Map<String, dynamic>))
+          .toList());
     });
   }
 
@@ -51,7 +53,8 @@ class _GeminiChatPageState extends State<GeminiChatPage> {
       return;
     }
 
-    final userMessage = Message(isUser: true, message: message, date: DateTime.now());
+    final userMessage =
+        Message(isUser: true, message: message, date: DateTime.now());
     setState(() {
       _messages.add(userMessage);
     });
@@ -61,7 +64,8 @@ class _GeminiChatPageState extends State<GeminiChatPage> {
     final content = [Content.text(message)];
     final response = await model.generateContent(content);
 
-    final botMessage = Message(isUser: false, message: response.text ?? "", date: DateTime.now());
+    final botMessage = Message(
+        isUser: false, message: response.text ?? "", date: DateTime.now());
     setState(() {
       _messages.add(botMessage);
     });
@@ -72,11 +76,12 @@ class _GeminiChatPageState extends State<GeminiChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('MY  CHAT  BOT')),
-        backgroundColor: Colors.orange.shade200,
+        title: const Center(child: Text("C H A T   B O T")),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey,
         elevation: 0,
       ),
-      backgroundColor: const Color(0xFFFFFDD0), // Cream color
+      backgroundColor: Colors.orange.shade200,
       body: Column(
         children: [
           Expanded(

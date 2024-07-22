@@ -20,15 +20,25 @@ class ChatScreenPage extends StatefulWidget {
 }
 
 class _ChatScreenPageState extends State<ChatScreenPage> {
+// for textfield focus
+  FocusNode myFocusNode = FocusNode();
+
 //chat and authentication services
   final AuthService _authService = AuthService();
-  final ChatService _chatService = ChatService();
 
+  final ChatService _chatService = ChatService();
 //text controller
   final TextEditingController _messageController = TextEditingController();
 
-// for textfield focus
-  FocusNode myFocusNode = FocusNode();
+  //scroll controller
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    myFocusNode.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -48,15 +58,6 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     });
   }
 
-  @override
-  void dispose() {
-    myFocusNode.dispose();
-    _messageController.dispose();
-    super.dispose();
-  }
-
-  //scroll controller
-  final ScrollController _scrollController = ScrollController();
   void scrollDown() {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
