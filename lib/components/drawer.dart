@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:virtuallearningapp/components/my_list_tile.dart';
 import 'package:virtuallearningapp/components/settings.dart';
 import 'package:virtuallearningapp/pages/downloads_page.dart';
-import 'package:virtuallearningapp/pages/year_one.dart';
-import 'package:virtuallearningapp/pages/year_two.dart';
+import 'package:virtuallearningapp/pages/year_one_semester_one_page.dart';
+import 'package:virtuallearningapp/pages/year_one_semester_two_page.dart';
+import 'package:virtuallearningapp/pages/year_two_semester_one_page.dart';
+import 'package:virtuallearningapp/pages/year_two_semester_two_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -46,23 +48,55 @@ class MyDrawer extends StatelessWidget {
                       ));
                     },
                   ),
-                  MyListTile(
-                    icon: Icons.looks_one_rounded,
-                    text: "Y E A R  O N E  ",
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const YearOnePage(),
-                      ));
-                    },
+                  ListTile(
+                    leading: const Icon(Icons.looks_one_rounded),
+                    title: const Text("Y E A R  O N E"),
+                    trailing: PopupMenuButton<String>(
+                      onSelected: (String value) {
+                        if (value == 'Semester One') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const YearOneSemesterOnePage(),
+                          ));
+                        } else if (value == 'Semester Two') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const YearOneSemesterTwoPage(),
+                          ));
+                        }
+                      },
+                      itemBuilder: (BuildContext context) {
+                        return {'Semester One', 'Semester Two'}.map((String choice) {
+                          return PopupMenuItem<String>(
+                            value: choice,
+                            child: Text(choice),
+                          );
+                        }).toList();
+                      },
+                    ),
                   ),
-                  MyListTile(
-                    icon: Icons.looks_two_rounded,
-                    text: "Y E A R  T W O ",
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const YearTwoPage(),
-                      ));
-                    },
+                  ListTile(
+                    leading: const Icon(Icons.looks_two_rounded),
+                    title: const Text("Y E A R  T W O "),
+                    trailing: PopupMenuButton<String>(
+                      onSelected: (String value) {
+                        if (value == 'Semester One') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const YearTwoSemesterOnePage(),
+                          ));
+                        } else if (value == 'Semester Two') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const YearTwoSemesterTwoPage(),
+                          ));
+                        }
+                      },
+                      itemBuilder: (BuildContext context) {
+                        return {'Semester One', 'Semester Two'}.map((String choice) {
+                          return PopupMenuItem<String>(
+                            value: choice,
+                            child: Text(choice),
+                          );
+                        }).toList();
+                      },
+                    ),
                   ),
                   MyListTile(
                     icon: Icons.person,
