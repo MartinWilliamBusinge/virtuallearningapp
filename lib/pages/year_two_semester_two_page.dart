@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class YearTwoPage extends StatelessWidget {
-  const YearTwoPage({super.key});
+class YearTwoSemesterTwoPage extends StatelessWidget {
+  const YearTwoSemesterTwoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class YearTwoPage extends StatelessWidget {
       backgroundColor: Colors.lightBlueAccent,
       body: Center(
         child: Text(
-          "Year Two Page"
+          "Year Two Semester Two"
           ),
       ),
     );
