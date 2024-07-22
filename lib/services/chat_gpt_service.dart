@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ChatGPTService {
-  final String _apiKey = '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';
+  final String _apiKey = 'YOUR OPEN AI API KEY';
   final String _model = 'gpt2';
 
   Future<String> getResponse(String prompt) async {
