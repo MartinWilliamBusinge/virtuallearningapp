@@ -30,8 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         emailController.text,
         passwordController.text,
       );
-      if (userCredential != null) {
-        }
+      if (userCredential != null) {}
     } on FirebaseAuthException catch (e) {
       // Pop the loading circle
       // Show error message
@@ -59,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 192, 139, 96),
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -69,23 +68,24 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
                 const Icon(
                   Icons.lock,
-                  size: 40,
+                  size: 120,
                 ),
                 const SizedBox(height: 25),
                 Text(
-                  'HELLO😁 WELCOME TO OUR APP ',
+                  'HELLO😁 WELCOME TO QUICK LEARN APP ',
                   style: TextStyle(
                     color: Colors.grey[700],
-                    fontSize: 16,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 35),
                 MyTextField(
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 MyTextField(
                   controller: passwordController,
                   hintText: 'Password',

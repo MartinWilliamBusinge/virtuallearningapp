@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:virtuallearningapp/components/my_list_tile.dart';
@@ -7,9 +9,18 @@ import 'package:virtuallearningapp/pages/year_one_semester_one_page.dart';
 import 'package:virtuallearningapp/pages/year_one_semester_two_page.dart';
 import 'package:virtuallearningapp/pages/year_two_semester_one_page.dart';
 import 'package:virtuallearningapp/pages/year_two_semester_two_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
+
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  bool _isYearOneExpanded = false;
+  bool _isYearTwoExpanded = false;
 
   // sign user out method
   void signUserOut() {
@@ -27,10 +38,15 @@ class MyDrawer extends StatelessWidget {
               child: Center(
                 child: Text(
                   "       “REMEMBER\"\n \nBeing a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
-                  style: TextStyle(fontSize: 18, color: Colors.brown.shade900),
+                  style: GoogleFonts.bonaNova(
+                    textStyle:
+                        TextStyle(fontSize: 18, color: Colors.brown.shade900, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
+
+            //Home button
             Expanded(
               child: ListView(
                 children: [
@@ -39,6 +55,118 @@ class MyDrawer extends StatelessWidget {
                     text: 'H O M E',
                     onTap: () => Navigator.pop(context),
                   ),
+
+                  //Year One Button with popup menu
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                    color: _isYearOneExpanded
+                        ? Colors.deepPurple.shade300
+                        : Colors.transparent,
+                    child: ListTile(
+                      leading: const Icon(
+                        Icons.looks_one_rounded,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        "Y E A R  O N E",
+                        style: GoogleFonts.ptSerif(
+                          textStyle: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      trailing: PopupMenuButton<String>(
+                        onSelected: (String value) {
+                          if (value == 'Semester One') {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const YearOneSemesterOnePage(),
+                            ));
+                          } else if (value == 'Semester Two') {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const YearOneSemesterTwoPage(),
+                            ));
+                          }
+                        },
+                        onCanceled: () {
+                          setState(() {
+                            _isYearOneExpanded = false;
+                          });
+                        },
+                        onOpened: () {
+                          setState(() {
+                            _isYearOneExpanded = true;
+                          });
+                        },
+                        itemBuilder: (BuildContext context) {
+                          return {'Semester One', 'Semester Two'}
+                              .map((String choice) {
+                            return PopupMenuItem<String>(
+                              value: choice,
+                              child: Text(choice),
+                            );
+                          }).toList();
+                        },
+                      ),
+                    ),
+                  ),
+
+                  //Year Two Button with popup menu
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                    color: _isYearTwoExpanded
+                        ? Colors.deepPurple.shade300
+                        : Colors.transparent,
+                    child: ListTile(
+                      leading: const Icon(
+                        Icons.looks_two_rounded,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        "Y E A R  T W O ",
+                        style: GoogleFonts.ptSerif(
+                          textStyle: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      trailing: PopupMenuButton<String>(
+                        onSelected: (String value) {
+                          if (value == 'Semester One') {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const YearTwoSemesterOnePage(),
+                            ));
+                          } else if (value == 'Semester Two') {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const YearTwoSemesterTwoPage(),
+                            ));
+                          }
+                        },
+                        onCanceled: () {
+                          setState(() {
+                            _isYearTwoExpanded = false;
+                          });
+                        },
+                        onOpened: () {
+                          setState(() {
+                            _isYearTwoExpanded = true;
+                          });
+                        },
+                        itemBuilder: (BuildContext context) {
+                          return {'Semester One', 'Semester Two'}
+                              .map((String choice) {
+                            return PopupMenuItem<String>(
+                              value: choice,
+                              child: Text(choice),
+                            );
+                          }).toList();
+                        },
+                      ),
+                    ),
+                  ),
+
+                  //Downloads button
                   MyListTile(
                     icon: Icons.download_rounded,
                     text: "D O W N L O A D S ",
@@ -48,58 +176,10 @@ class MyDrawer extends StatelessWidget {
                       ));
                     },
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.looks_one_rounded),
-                    title: const Text("Y E A R  O N E"),
-                    trailing: PopupMenuButton<String>(
-                      onSelected: (String value) {
-                        if (value == 'Semester One') {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const YearOneSemesterOnePage(),
-                          ));
-                        } else if (value == 'Semester Two') {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const YearOneSemesterTwoPage(),
-                          ));
-                        }
-                      },
-                      itemBuilder: (BuildContext context) {
-                        return {'Semester One', 'Semester Two'}.map((String choice) {
-                          return PopupMenuItem<String>(
-                            value: choice,
-                            child: Text(choice),
-                          );
-                        }).toList();
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.looks_two_rounded),
-                    title: const Text("Y E A R  T W O "),
-                    trailing: PopupMenuButton<String>(
-                      onSelected: (String value) {
-                        if (value == 'Semester One') {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const YearTwoSemesterOnePage(),
-                          ));
-                        } else if (value == 'Semester Two') {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const YearTwoSemesterTwoPage(),
-                          ));
-                        }
-                      },
-                      itemBuilder: (BuildContext context) {
-                        return {'Semester One', 'Semester Two'}.map((String choice) {
-                          return PopupMenuItem<String>(
-                            value: choice,
-                            child: Text(choice),
-                          );
-                        }).toList();
-                      },
-                    ),
-                  ),
+
+                  //Setting button
                   MyListTile(
-                    icon: Icons.person,
+                    icon: Icons.settings,
                     text: " S E T T I N G S ",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -112,7 +192,7 @@ class MyDrawer extends StatelessWidget {
             ),
             MyListTile(
               icon: Icons.logout,
-              text: "L O G  O U T ",
+              text: "L O G  O U T ",              
               onTap: signUserOut,
             ),
           ],
