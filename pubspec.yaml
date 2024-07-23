@@ -56,6 +56,9 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_gemini: ^2.0.4
   collection: ^1.18.0
+  file_picker: ^4.2.6
+  permission_handler: ^10.0.0
+  open_file: ^3.2.1
   
 
 dev_dependencies:
