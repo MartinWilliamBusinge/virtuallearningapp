@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:virtuallearningapp/components/my_list_tile.dart';
 import 'package:virtuallearningapp/components/settings.dart';
 import 'package:virtuallearningapp/pages/downloads_page.dart';
+import 'package:virtuallearningapp/pages/home_page.dart';
 import 'package:virtuallearningapp/pages/year_one_semester_one_page.dart';
 import 'package:virtuallearningapp/pages/year_one_semester_two_page.dart';
 import 'package:virtuallearningapp/pages/year_two_semester_one_page.dart';
@@ -37,7 +38,7 @@ class _MyDrawerState extends State<MyDrawer> {
             DrawerHeader(
               child: Center(
                 child: Text(
-                  "       “REMEMBER\"\n \nBeing a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
+                  "       “REMEMBER\"\n Being a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
                   style: GoogleFonts.bonaNova(
                     textStyle:
                         TextStyle(fontSize: 18, color: Colors.brown.shade900, fontWeight: FontWeight.bold),
@@ -53,7 +54,11 @@ class _MyDrawerState extends State<MyDrawer> {
                   MyListTile(
                     icon: Icons.home,
                     text: 'H O M E',
-                    onTap: () => Navigator.pop(context),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ));
+                    },
                   ),
 
                   //Year One Button with popup menu

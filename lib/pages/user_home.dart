@@ -1,9 +1,45 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtuallearningapp/components/my_button.dart';
 import 'package:virtuallearningapp/pages/contact_us_page.dart';
 
-class UserHomePage extends StatelessWidget {
+class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _UserHomePageState createState() => _UserHomePageState();
+}
+
+class _UserHomePageState extends State<UserHomePage> {
+  final User user = FirebaseAuth.instance.currentUser!;
+  String? fullName; // Add a property to hold the user's full name
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserFullName();
+  }
+
+  // Fetch the user's full name from Firestore
+  Future<void> _fetchUserFullName() async {
+    final doc = await FirebaseFirestore.instance
+        .collection('Profiles')
+        .doc(user.uid)
+        .get();
+
+    if (doc.exists) {
+      final data = doc.data() as Map<String, dynamic>;
+      setState(() {
+        fullName = data['fullName'];
+      });
+    } else {
+      setState(() {
+        fullName = "FRIEND";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +51,10 @@ class UserHomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+              Center(
                 child: Text(
-                  'HELLO WELCOME TO QUICK LEARN APP \u{1F600} \n FEEL AT HOME \u{2764}\u{FE0F}',
-                  style: TextStyle(
+                  'HELLO ${fullName ?? 'LOADING...'} \n WELCOME TO QUICK LEARN APP \u{1F600} \n FEEL AT HOME \u{2764}\u{FE0F}',
+                  style: const TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 23,
                     fontWeight: FontWeight.bold,
