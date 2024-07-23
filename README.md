@@ -6,7 +6,7 @@ Makerere University College of Computing and Information Sciences
 
 Nakirijja Jesicca
 
-Nakanjako teddy Shillah
+Nakanjako Teddy Shillah
 
 Ariik Jacob
 

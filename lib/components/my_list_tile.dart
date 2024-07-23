@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 class MyListTile extends StatelessWidget {
-   final IconData icon;
+  final IconData icon;
   final String text;
   final void Function()? onTap;
-  const MyListTile ({
+  const MyListTile({
     super.key,
     required this.icon,
     required this.text,
@@ -17,9 +18,9 @@ class MyListTile extends StatelessWidget {
       child: ListTile(
         leading: Icon(
           icon,
-          color:  Colors.white,
+          color: Colors.white,
         ),
-        onTap: onTap ,
+        onTap: onTap,
         title: Text(
           text,
           style: const TextStyle(color: Colors.white),
