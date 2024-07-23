@@ -3,8 +3,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:virtuallearningapp/pages/profile_page.dart';
 
 class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
+
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -50,6 +53,12 @@ class _AccountPageState extends State<AccountPage> {
         _isLoading = false;
       });
     }
+  }
+
+  void _navigateToProfilePage() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const ProfilePage(),
+    ));
   }
 
   @override
@@ -105,12 +114,26 @@ class _AccountPageState extends State<AccountPage> {
                         const SizedBox(height: 16),
                       ],
                     )
-                  : const Center(
-                      child: Text(
-                        'No profile data found😢. \n Please visit SETTINGS and select Change Profile to set up your profile.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: _navigateToProfilePage,
+                          child: const Center(
+                            child: Text(
+                              'No profile data found😢. \nPlease take a minute and set up your profile.',
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        ElevatedButton(
+                          onPressed: _navigateToProfilePage,
+                          child: const Text('Set Up Profile'),
+                        ),
+                      ],
                     ),
             ),
     );

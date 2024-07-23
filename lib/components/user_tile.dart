@@ -30,7 +30,7 @@ class UserTile extends StatelessWidget {
           const SizedBox(width: 20),
 
           //user name
-          Text(text,style: const TextStyle(color: Colors.white), ),
+          Text(text,style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold), ),
         ],)
       ),
     );
