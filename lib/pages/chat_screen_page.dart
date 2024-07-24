@@ -20,23 +20,27 @@ class ChatScreenPage extends StatefulWidget {
 }
 
 class _ChatScreenPageState extends State<ChatScreenPage> {
-// for textfield focus
+  // for textfield focus
   FocusNode myFocusNode = FocusNode();
 
-//chat and authentication services
+  // chat and authentication services
   final AuthService _authService = AuthService();
-
   final ChatService _chatService = ChatService();
-//text controller
+
+  // text controller
   final TextEditingController _messageController = TextEditingController();
 
-  //scroll controller
+  // scroll controller
   final ScrollController _scrollController = ScrollController();
+
+  String? receiverName;
+  bool isLoading = true;
 
   @override
   void dispose() {
     myFocusNode.dispose();
     _messageController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -44,37 +48,59 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
   void initState() {
     super.initState();
 
-    //add listener to focus node
+    // add listener to focus node
     myFocusNode.addListener(() {
       if (myFocusNode.hasFocus) {
-        //cause a delay so thaat the keyboard can show up
-        //then calculate the amount of remaining space
-        //scroll down
+        // cause a delay so that the keyboard can show up
+        // then calculate the amount of remaining space
+        // scroll down
         Future.delayed(
-          const Duration(milliseconds: 500),
+          const Duration(milliseconds: 300),
           () => scrollDown(),
         );
       }
     });
+
+    _fetchReceiverName();
+  }
+
+  Future<void> _fetchReceiverName() async {
+    var doc = await FirebaseFirestore.instance
+        .collection('Profiles')
+        .doc(widget.receiverID)
+        .get();
+
+    if (doc.exists && doc.data()!.containsKey('fullName')) {
+      setState(() {
+        receiverName = doc['fullName'];
+        isLoading = false;
+      });
+    } else {
+      setState(() {
+        receiverName = widget.receiverEmail;
+        isLoading = false;
+      });
+    }
   }
 
   void scrollDown() {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
-      duration: const Duration(seconds: 1),
-      curve: Curves.fastOutSlowIn,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
     );
   }
 
-//send message
+  // send message
   void sendMessage() async {
-    //if there is something inside the textfield
+    // if there is something inside the textfield
     if (_messageController.text.isNotEmpty) {
-      //send
-      await _chatService.sendMessage(
-          widget.receiverID, _messageController.text);
-      //clear
+      // send
+      await _chatService.sendMessage(widget.receiverID, _messageController.text);
+      // clear
       _messageController.clear();
+      // scroll down to the latest message
+      scrollDown();
     }
   }
 
@@ -83,16 +109,16 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     if (currentUser == null) {
       return const Text("User not authenticated");
     }
-    //MIGHT NEED SOME ADJUSTMENTS KEEP IN MIND
+    // MIGHT NEED SOME ADJUSTMENTS KEEP IN MIND
     String senderID = _authService.getCurrentUser()!.uid;
     return StreamBuilder(
       stream: _chatService.getMessages(widget.receiverID, senderID),
       builder: (context, snapshot) {
-        //error
+        // error
         if (snapshot.hasError) {
           return const Text("Error");
         }
-        //loading
+        // loading
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Text("Loading....");
         }
@@ -100,11 +126,10 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
           return const Text("No messages yet.");
         }
-        //return List View
+        // return List View
         return ListView(
           controller: _scrollController,
-          children:
-              snapshot.data!.docs.map((doc) => _buildMessageItem(doc)).toList(),
+          children: snapshot.data!.docs.map((doc) => _buildMessageItem(doc)).toList(),
         );
       },
     );
@@ -132,13 +157,13 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     );
   }
 
-  //build message input
+  // build message input
   Widget _buildUserInput() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 50.0),
       child: Row(
         children: [
-          //textfield should take up most of the space
+          // textfield should take up most of the space
           Expanded(
             child: MyTextField(
               controller: _messageController,
@@ -156,7 +181,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
             child: IconButton(
               onPressed: sendMessage,
               icon: const Icon(
-                Icons.arrow_upward_rounded,
+                Icons.send_rounded,
                 color: Colors.white,
               ),
             ),
@@ -170,18 +195,20 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(widget.receiverEmail)),
+        title: isLoading
+            ? const CircularProgressIndicator()
+            : Center(child: Text(receiverName ?? widget.receiverEmail)),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,
       ),
       body: Column(
         children: [
-          //display all messages
+          // display all messages
           Expanded(
             child: _buildMessageList(),
           ),
-          //user input
+          // user input
           _buildUserInput(),
         ],
       ),

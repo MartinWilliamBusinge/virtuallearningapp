@@ -23,8 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final AuthService _authService = AuthService();
 
   void signUserUp() async {
-   
-
     try {
       if (passwordController.text == confirmPasswordController.text) {
         UserCredential? userCredential =
@@ -32,8 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
           emailController.text,
           passwordController.text,
         );
-        if (userCredential != null) {
-        }
+        if (userCredential != null) {}
       } else {
         showErrorMessage("Sorry, Passwords don't match");
         return;
@@ -63,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 182, 141, 107),
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -73,14 +70,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 50),
                 const Icon(
                   Icons.lock,
-                  size: 40,
+                  size: 100,
                 ),
                 const SizedBox(height: 25),
-                Text(
-                  'HELLO😁 LETS CREATE AN ACCOUNT FOR YOU',
-                  style: TextStyle(
-                    color: Colors.grey[700],
-                    fontSize: 16,
+                Center(
+                  child: Text(
+                    '                           HELLO😁 \n LETS CREATE AN ACCOUNT FOR YOU',
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -89,13 +89,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   hintText: 'Email',
                   obscureText: false,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 MyTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 MyTextField(
                   controller: confirmPasswordController,
                   hintText: 'Confirm Password',
@@ -142,7 +142,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           // Handle successful sign-in
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => const HomePage()),
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()),
                           );
                         }
                       },

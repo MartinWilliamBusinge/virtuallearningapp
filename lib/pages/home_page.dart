@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:virtuallearningapp/components/drawer.dart';
+import 'package:virtuallearningapp/components/settings.dart';
 import 'package:virtuallearningapp/pages/account_page.dart';
 import 'package:virtuallearningapp/pages/chat_page.dart';
 import 'package:virtuallearningapp/pages/gemini_chat_page.dart';
@@ -22,8 +23,8 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const UserHomePage(),
     ChatPage(),
-    AccountPage(),
     const GeminiChatPage(),
+    const SettingsPage(),
   ];
 
   // sign user out method
@@ -37,6 +38,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _navigateToAccountPage() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const AccountPage(),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +54,11 @@ class _HomePageState extends State<HomePage> {
         title: const Text("VIRTUAL LEARNING APP"),
         actions: [
           IconButton(
-            onPressed: signUserOut,
-            icon: const Icon(Icons.logout),
-            color: Colors.green, // Set the color of the icon
+            onPressed: _navigateToAccountPage,
+            icon: const Icon(Icons.person_2_outlined),
+            padding: const EdgeInsets.all(10.0),
+            color: Colors.green,
+            iconSize: 40, // Set the color of the icon
           )
         ],
       ),
@@ -70,8 +79,8 @@ class _HomePageState extends State<HomePage> {
             tabs: const [
               GButton(icon: Icons.home, text: 'Home'),
               GButton(icon: Icons.message, text: "Chat"),
-              GButton(icon: Icons.person, text: "Profile"),
               GButton(icon: Icons.wechat_rounded, text: "Chat Bot"),
+              GButton(icon: Icons.settings, text: "Settings"),
             ],
           ),
         ),

@@ -3,6 +3,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:virtuallearningapp/services/api_keys.dart';
 
 class GeminiChatPage extends StatefulWidget {
   const GeminiChatPage({super.key});
@@ -13,8 +14,7 @@ class GeminiChatPage extends StatefulWidget {
 
 class _GeminiChatPageState extends State<GeminiChatPage> {
   final TextEditingController _userInput = TextEditingController();
-  static const apiKey = "YOUR GOOGLE APPI KEY";
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+  final model = GenerativeModel(model: 'gemini-1.5-pro', apiKey: apiKey);
   final List<Message> _messages = [];
   late final String userId;
 
