@@ -12,7 +12,7 @@ class GeminiChatPage extends StatefulWidget {
 }
 
 class _GeminiChatPageState extends State<GeminiChatPage> {
-  TextEditingController _userInput = TextEditingController();
+  final TextEditingController _userInput = TextEditingController();
   static const apiKey = "YOUR GOOGLE APPI KEY";
   final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
   final List<Message> _messages = [];
