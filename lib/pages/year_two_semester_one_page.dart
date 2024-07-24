@@ -25,6 +25,7 @@ class YearTwoSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Operating Systems',
                     courseCode: 'CSC1102',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
     ),
                 ),
               );
@@ -41,6 +42,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Probability and Statistics',
                     courseCode: 'CSC1103',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
+
      ),
                 ),
               );
@@ -57,6 +60,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Data Structures and Algorithms',
                     courseCode: 'CSK1101',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
+
         ),
                 ),
               );

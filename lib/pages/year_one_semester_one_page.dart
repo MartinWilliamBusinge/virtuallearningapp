@@ -25,6 +25,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Object-Oriented Programming',
                     courseCode: 'CSC1102',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
+
     ),
                 ),
               );
@@ -41,6 +43,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Computer Architecture',
                     courseCode: 'CSC1103',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
+
      ),
                 ),
               );
@@ -57,6 +61,7 @@ class YearOneSemesterOnePage extends StatelessWidget {
                   builder: (context) => CourseDetailsPage(
                     courseName: 'Communication Skills',
                     courseCode: 'CSK1101',
+                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
         ),
                 ),
               );
