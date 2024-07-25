@@ -16,7 +16,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: const Text('Operating Systems'),
+            title: const Text('OPERATING SYSTEMS'),
             subtitle: const Text('course code: CSC1102'),
             onTap: () {
                Navigator.push(
@@ -27,7 +27,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
                     courseCode: 'CSC1102',
                     description:
                         'Introduction to Operating Systems.',
-                    instructor: 'Prof. John Doe',
+                    lecturer: 'Prof. John Doe',
                     schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
                     pdfUrl: 'https://example.com/path_to_pdf.pdf',
                   ),
@@ -36,7 +36,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Probability and Statistics'),
+            title: const Text('PROBABILITY AND STATISTICS'),
             subtitle: const Text('course code: CSC1103'),
             onTap: () {
               Navigator.push(
@@ -47,7 +47,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
                     courseCode: 'CSC1103',
                     description:
                         'Study of Probability and Statistics.',
-                    instructor: 'Dr. Ngubiri',
+                    lecturer: 'Dr. Ngubiri',
                     schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
                     pdfUrl: 'https://example.com/path_to_pdf2.pdf',
                   ),
@@ -56,7 +56,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Data Structures and Algorithms'),
+            title: const Text('DATA STRUCTURES AND ALGORITHMS'),
             subtitle: const Text('course code: CSK1101'),
             onTap: () {
               Navigator.push(
@@ -67,7 +67,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
                     courseCode: 'CSK1101',
                     description:
                         'Data Structures and Algorithms for academic and professional Learning.',
-                    instructor: 'lecturer: Mr Kizito',
+                    lecturer: 'Mr Kizito ',
                     schedule: 'Fridays, 10:00 AM - 12:00 PM',
                     pdfUrl: 'https://example.com/path_to_pdf3.pdf',
                   ),

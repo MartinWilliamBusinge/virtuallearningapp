@@ -15,8 +15,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: const Text('Object-Oriented Programming'),
-            subtitle: const Text('course code: CSC1102'),
+            title: const Text('OBJECT-ORIENTED PROGRAMMING'),
+            subtitle: const Text('COURSE CODE: CSC1102'),
             onTap: () {
                Navigator.push(
                 context,
@@ -26,7 +26,7 @@ class YearOneSemesterOnePage extends StatelessWidget {
                     courseCode: 'CSC1102',
                     description:
                         'Introduction to object-oriented programming principles and practices.',
-                    instructor: 'Prof. John Doe',
+                    lecturer: 'Mr Lwomwa Joseph',
                     schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
                     pdfUrl: 'https://example.com/path_to_pdf.pdf',
                   ),
@@ -35,8 +35,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Computer Architecture'),
-            subtitle: const Text('course code: CSC1103'),
+            title: const Text('COMPUTER ARCHITECTURE'),
+            subtitle: const Text('COURSE CODE: CSC1103'),
             onTap: () {
               Navigator.push(
    context,
@@ -46,7 +46,7 @@ class YearOneSemesterOnePage extends StatelessWidget {
                     courseCode: 'CSC1103',
                     description:
                         'Study of computer organization and architecture.',
-                    instructor: 'Dr. Jane Smith',
+                    lecturer: 'Mrs Babrah',
                     schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
                     pdfUrl: 'https://example.com/path_to_pdf2.pdf',
                   ),
@@ -55,8 +55,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Communication Skills'),
-            subtitle: const Text('course code: CSK1101'),
+            title: const Text('COMMUNICATION SKILLS'),
+            subtitle: const Text('COURSE CODE: CSK1101'),
             onTap: () {
               Navigator.push(
                 context,
@@ -65,8 +65,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
                     courseName: 'Communication Skills',
                     courseCode: 'CSK1101',
                     description:
-                        'Developing effective communication skills for academic and professional settings.',
-                    instructor: 'Prof. Emily Brown',
+                        'Developing effective communication skills for academic and professional Learning.',
+                    lecturer: 'Mrs Katushemererwe Fridah',
                     schedule: 'Fridays, 10:00 AM - 12:00 PM',
                     pdfUrl: 'https://example.com/path_to_pdf3.pdf',
                   ),
