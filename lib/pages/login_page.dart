@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 25),
                 Text(
-                  'HELLO😁 WELCOME TO QUICK LEARN APP ',
+                  '                        HELLO😁 \n WELCOME TO QUICK LEARN APP ',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 20,

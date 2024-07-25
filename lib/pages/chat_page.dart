@@ -41,14 +41,54 @@ class ChatPage extends StatelessWidget {
           return const Text("Loading");
         }
 
-        // Return list view
-        return ListView(
-          children: snapshot.data!
-              .map<Widget>((userData) => _buildUserListItem(userData, context))
-              .toList(),
+        // Process user data
+        List<Map<String, dynamic>> userDataList = snapshot.data!;
+        String currentUserID = _authService.getCurrentUser()!.uid;
+
+        return FutureBuilder<List<Map<String, dynamic>>>(
+          future: _sortUsersByLastMessageTimestamp(userDataList, currentUserID),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+
+            if (snapshot.hasError) {
+              return const Text("Error");
+            }
+
+            List<Map<String, dynamic>> sortedUserDataList = snapshot.data!;
+
+            return ListView(
+              children: sortedUserDataList
+                  .map<Widget>((userData) => _buildUserListItem(userData, context))
+                  .toList(),
+            );
+          },
         );
       },
     );
+  }
+
+  Future<List<Map<String, dynamic>>> _sortUsersByLastMessageTimestamp(
+      List<Map<String, dynamic>> userDataList, String currentUserID) async {
+    List<Map<String, dynamic>> sortedUserDataList = [];
+
+    for (var userData in userDataList) {
+      if (userData['uid'] != currentUserID) {
+        Timestamp? lastMessageTimestamp =
+            await _chatService.getLastMessageTimestamp(currentUserID, userData['uid']);
+        userData['lastMessageTimestamp'] = lastMessageTimestamp ?? Timestamp(0, 0);
+        sortedUserDataList.add(userData);
+      }
+    }
+
+    sortedUserDataList.sort((a, b) {
+      Timestamp timestampA = a['lastMessageTimestamp'];
+      Timestamp timestampB = b['lastMessageTimestamp'];
+      return timestampB.compareTo(timestampA); // Sort in descending order
+    });
+
+    return sortedUserDataList;
   }
 
   // Build individual list tile for user
@@ -75,17 +115,41 @@ class ChatPage extends StatelessWidget {
             displayName = userData['email'];
           }
 
-          return UserTile(
-            text: displayName,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatScreenPage(
-                    receiverEmail: userData['email'],
-                    receiverID: userData['uid'],
-                  ),
-                ),
+          return StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection('chat_rooms')
+                .doc(_chatService.getChatRoomID(_authService.getCurrentUser()!.uid, userData['uid']))
+                .collection('messages')
+                .orderBy('timestamp', descending: true)
+                .limit(1)
+                .snapshots(),
+            builder: (context, snapshot) {
+              String lastMessage = '';
+              int unreadCount = 0;
+
+              if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
+                var lastMsgDoc = snapshot.data!.docs.first.data() as Map<String, dynamic>;
+                lastMessage = lastMsgDoc['message'];
+                unreadCount = snapshot.data!.docs
+                    .where((doc) => !doc['isRead'] && doc['receiverID'] == _authService.getCurrentUser()!.uid)
+                    .length;
+              }
+
+              return UserTile(
+                text: displayName,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatScreenPage(
+                        receiverEmail: userData['email'],
+                        receiverID: userData['uid'],
+                      ),
+                    ),
+                  );
+                },
+                lastMessage: lastMessage,
+                unreadCount: unreadCount,
               );
             },
           );

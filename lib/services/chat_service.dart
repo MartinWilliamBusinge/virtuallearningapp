@@ -4,42 +4,37 @@ import 'package:virtuallearningapp/models/message.dart';
 
 class ChatService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //get instance of firestore and authentication
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  //get user stream
+  // Get user stream
   Stream<List<Map<String, dynamic>>> getUsersStream() {
     return _firestore.collection("Users").snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
-        //go through each individual user
         final user = doc.data();
-
-        //return user
         return user;
       }).toList();
     });
   }
 
-  //send message
-  Future<void> sendMessage(String receiverID, message) async {
-//get curent user info
+  // Send message
+  Future<void> sendMessage(String receiverID, String message) async {
     final String currentUserID = _auth.currentUser!.uid;
     final String currentUserEmail = _auth.currentUser!.email!;
     final Timestamp timestamp = Timestamp.now();
 
-//create a new message
-
+    // Create a new message
     Message newMessage = Message(
-        senderID: currentUserID,
-        senderEmail: currentUserEmail,
-        receiverID: receiverID,
-        message: message,
-        timestamp: timestamp);
-//construct chat room ID for the 2 users
-    List<String> ids = [currentUserID, receiverID];
-    ids.sort();
-    String chatRoomID = ids.join('_');
-//add new message to database
+      senderID: currentUserID,
+      senderEmail: currentUserEmail,
+      receiverID: receiverID,
+      message: message,
+      timestamp: timestamp,
+      isRead: false, // Default value
+    );
+
+    String chatRoomID = getChatRoomID(currentUserID, receiverID);
+
+    // Add new message to database
     await _firestore
         .collection("chat_rooms")
         .doc(chatRoomID)
@@ -47,18 +42,41 @@ class ChatService {
         .add(newMessage.toMap());
   }
 
-  //get message
-  Stream<QuerySnapshot> getMessages(String userID, otherUserID){
-    //construct a chatroom ID for the two users
-    List<String> ids = [userID, otherUserID];
-    ids.sort();
-    String chatRoomID = ids.join('_');
+  // Get messages
+  Stream<QuerySnapshot> getMessages(String userID, String otherUserID) {
+    String chatRoomID = getChatRoomID(userID, otherUserID);
 
     return _firestore
-    .collection("chat_rooms")
-    .doc(chatRoomID)
-    .collection("messages")
-    .orderBy("timestamp", descending: false)
-    .snapshots();
+        .collection("chat_rooms")
+        .doc(chatRoomID)
+        .collection("messages")
+        .orderBy("timestamp", descending: false)
+        .snapshots();
+  }
+
+  // Get chat room ID
+  String getChatRoomID(String userID1, String userID2) {
+    List<String> ids = [userID1, userID2];
+    ids.sort();
+    return ids.join('_');
+  }
+
+  // Get last message timestamp between two users
+  Future<Timestamp?> getLastMessageTimestamp(String userID1, String userID2) async {
+    String chatRoomID = getChatRoomID(userID1, userID2);
+
+    var querySnapshot = await _firestore
+        .collection("chat_rooms")
+        .doc(chatRoomID)
+        .collection("messages")
+        .orderBy("timestamp", descending: true)
+        .limit(1)
+        .get();
+
+    if (querySnapshot.docs.isNotEmpty) {
+      return querySnapshot.docs.first['timestamp'];
+    } else {
+      return null;
+    }
   }
 }
