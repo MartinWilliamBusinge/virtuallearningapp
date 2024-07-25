@@ -5,7 +5,7 @@ class CourseDetailsPage extends StatelessWidget {
   final String courseName;
   final String courseCode;
   final String description;
-  final String instructor;
+  final String lecturer;
   final String schedule;
   final String pdfUrl; // URL or path to the PDF
 
@@ -13,7 +13,7 @@ class CourseDetailsPage extends StatelessWidget {
     required this.courseName,
     required this.courseCode,
     required this.description,
-    required this.instructor,
+    required this.lecturer,
     required this.schedule,
     required this.pdfUrl,
      });
@@ -53,11 +53,11 @@ class CourseDetailsPage extends StatelessWidget {
             ),
            const SizedBox(height: 10),
            const Text(
-              'Instructor:',
+              'Lecturer:',
               style:  TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
-              instructor,
+              lecturer,
               style: const TextStyle(fontSize: 16),
             ),
            const SizedBox(height: 10),
