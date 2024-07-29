@@ -25,11 +25,14 @@ class _OperatingSystemsPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction",
+    "Process Management",
+    "Process Synchronization",
+    "Memory Management",
+    "Files System",
+    "Security and Protection",
+    "Advanced Topics",
+    "Case Studies"
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +294,7 @@ class _OperatingSystemsPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr. Peter'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action

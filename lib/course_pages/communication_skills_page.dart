@@ -25,11 +25,11 @@ class _CommunicationSkillsPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Aims",
+    "Learning Outcomes",
+    "Teaching and Learning Pattern",
+    "Indicative Content",
+    "The Writing Process",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +291,7 @@ class _CommunicationSkillsPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mrs. Katushemererwe Fildah \n '),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,8 +349,8 @@ class _CommunicationSkillsPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
-                      style: TextStyle(fontSize: 14),
+                      'This course provides students with skills of effective communication. Emphasis is provided on communications in today’s business environment that has increasingly been shaped by Information technology. Students will be taught how to effectively communicate technical information to lay audiences using oral, written and non-verbal communication.',
+                      style: TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 16),
                     const Text(

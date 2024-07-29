@@ -25,11 +25,11 @@ class _DataStructuresPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "PriorityQueuesHeaps",
+    "Sorting",
+    "StacksQueues",
+    "Algorithms",
+    "Bubble Sort",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +291,7 @@ class _DataStructuresPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr.Kizito Jona & Mr. Kalyango'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +349,7 @@ class _DataStructuresPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'The course gives students a firm foundation on data structures and algorithms. This course trains students on systematic analysis and design of algorithms. It emphasizes the marriage between data structures and algorithms that is unbreakable and how one supports the other in the efforts to produce effiently effective software solutions for civilization today.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),
