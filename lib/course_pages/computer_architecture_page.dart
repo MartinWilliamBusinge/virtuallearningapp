@@ -25,11 +25,14 @@ class _ComputerArchitecturePageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Basic Concepts and Computer Evolution",
+    "Performance Issues",
+    "Number Systems",
+    "Computer Arithmetic",
+    "Digital Logic",
+    "Data Manipulation",
+    "Computer Evolution",
+    "Top Level View of Computing"
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +294,7 @@ class _ComputerArchitecturePageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mrs. Barbrah'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +352,7 @@ class _ComputerArchitecturePageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course introduces the logical architecture and organization of computer systems. It highlights the lower end operations in a typical computer as well as the way computers manage their resources during operation. The course opens up a student to be an informed user of the computer rather than a passive recipient of the computer services.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

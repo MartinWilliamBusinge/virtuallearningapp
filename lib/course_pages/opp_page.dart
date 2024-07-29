@@ -25,11 +25,14 @@ class _OOPPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Python Program Structure",
+    "Operators in Python",
+    "Conditional Structures",
+    "Control Structures",
+    "Lists, Tuples,Sets and Dictionaries",
+    "Functions",
+    "File Management",
+
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +294,7 @@ class _OOPPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr.Lwomwa Joseph'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +352,9 @@ class _OOPPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'The course is to create a strong foundation in the principles and practice of modern computer programming. It should give an in depth understanding of structured and Object Oriented programming. It is to cater for both Structured and Object Oriented programming (O-O) topics like control structures, objects and classes, encapsulation, inheritance, polymorphism, interfaces, and exception handling. A state of the art programming language like Python or Java is to be  used. Students are to cover both theoretical principles and hands on practical skills.',
+
+
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

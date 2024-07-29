@@ -291,7 +291,7 @@ class _ComputerNetworksPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr. Tonny Bulega'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action

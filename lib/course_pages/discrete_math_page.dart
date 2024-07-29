@@ -291,7 +291,7 @@ class _DiscreteMathPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr. John Kizito'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +349,7 @@ class _DiscreteMathPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'The course applies mathematics to finite or discontinuous quantities in order to master the process of problem-solving, communication, reasoning, and modeling. It gives a basic understanding of mathematical structures that are fundamentally discrete. In particular, this course is meant to introduce logic, proofs, sets, relations, functions, counting, and probability, with an',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),
