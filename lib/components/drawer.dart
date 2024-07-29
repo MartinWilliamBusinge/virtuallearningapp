@@ -32,7 +32,7 @@ class _MyDrawerState extends State<MyDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: (Colors.deepPurple.shade400),
+        color: (Color.fromARGB(255, 245, 243, 244)),
         child: Column(
           children: [
             DrawerHeader(
@@ -41,7 +41,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   "       “REMEMBER\"\n Being a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
                   style: GoogleFonts.bonaNova(
                     textStyle:
-                        TextStyle(fontSize: 18, color: Colors.brown.shade900, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 18, color: Color.fromARGB(255, 146, 80, 167), fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -53,7 +53,8 @@ class _MyDrawerState extends State<MyDrawer> {
                 children: [
                   MyListTile(
                     icon: Icons.home,
-                    text: 'H O M E',
+                    text: 'H O M E', 
+                    
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const HomePage(),
@@ -71,12 +72,12 @@ class _MyDrawerState extends State<MyDrawer> {
                     child: ListTile(
                       leading: const Icon(
                         Icons.looks_one_rounded,
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 141, 50, 95),
                       ),
                       title: Text(
                         "Y E A R  O N E",
                         style: GoogleFonts.ptSerif(
-                          textStyle: const TextStyle(color: Colors.white),
+                          textStyle: const TextStyle(color: Color.fromARGB(255, 160, 69, 137)),
                         ),
                       ),
                       trailing: PopupMenuButton<String>(
@@ -126,12 +127,12 @@ class _MyDrawerState extends State<MyDrawer> {
                     child: ListTile(
                       leading: const Icon(
                         Icons.looks_two_rounded,
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 146, 66, 139),
                       ),
                       title: Text(
                         "Y E A R  T W O ",
                         style: GoogleFonts.ptSerif(
-                          textStyle: const TextStyle(color: Colors.white),
+                          textStyle: const TextStyle(color: Color.fromARGB(255, 129, 55, 96)),
                         ),
                       ),
                       trailing: PopupMenuButton<String>(
@@ -188,7 +189,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     text: " S E T T I N G S ",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SettingsPage(),
+                        builder: (context) =>  const SettingsPage(),
                       ));
                     },
                   ),

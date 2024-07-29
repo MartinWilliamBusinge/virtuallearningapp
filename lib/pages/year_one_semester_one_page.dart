@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Import the course details page
+import 'package:virtuallearningapp/course_pages/communication_skills_page.dart';
+import 'package:virtuallearningapp/course_pages/computer_architecture_page.dart';
+import 'package:virtuallearningapp/course_pages/opp_page.dart';
 
 class YearOneSemesterOnePage extends StatelessWidget {
   const YearOneSemesterOnePage({super.key});
@@ -8,61 +10,44 @@ class YearOneSemesterOnePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER ONE")),
-        backgroundColor: Colors.blueGrey,
-         ),
-      backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER ONE", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
+      ),
+      backgroundColor: Color.fromARGB(255, 238, 240, 240),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('Object-Oriented Programming'),
-            subtitle: const Text('course code: CSC1102'),
+            title: const Text('OBJECT-ORIENTED PROGRAMMING', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSC1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Object-Oriented Programming',
-                    courseCode: 'CSC1102',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-
-    ),
+                  builder: (context) => const OOPPage(),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('Computer Architecture'),
-            subtitle: const Text('course code: CSC1103'),
+            title: const Text('COMPUTER ARCHITECTURE', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSC1103', style: TextStyle(color: Color.fromARGB(255, 49, 48, 48))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Computer Architecture',
-                    courseCode: 'CSC1103',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-
-     ),
+                  builder: (context) => const ComputerArchitecturePage(),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('Communication Skills'),
-            subtitle: const Text('course code: CSK1101'),
+            title: const Text('COMMUNICATION SKILLS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSK1101', style: TextStyle(color: Color.fromARGB(255, 24, 23, 23))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Communication Skills',
-                    courseCode: 'CSK1101',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-        ),
+                  builder: (context) => const CommunicationSkillsPage(),
                 ),
               );
             },
@@ -70,5 +55,4 @@ class YearOneSemesterOnePage extends StatelessWidget {
         ],
       ),
     );
-  }
-}                                              
+}

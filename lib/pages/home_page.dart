@@ -17,24 +17,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 0;
+  int _currentIndex = 0;
   final user = FirebaseAuth.instance.currentUser!;
+  late PageController _pageController;
 
   final List<Widget> _pages = [
     const UserHomePage(),
-    ChatPage(),
+    const ChatPage(),
     const GeminiChatPage(),
     const SettingsPage(),
   ];
 
-  // sign user out method
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _currentIndex);
   }
 
-  void _navigateBottomBar(int newIndex) {
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onTabChange(int index) {
     setState(() {
-      index = newIndex;
+      _currentIndex = index;
+    });
+    _pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentIndex = index;
     });
   }
 
@@ -44,12 +60,17 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
+  // sign user out method
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 248, 247, 247),
+      backgroundColor: Color.fromARGB(255, 248, 245, 248),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 61, 37, 102),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
         elevation: 0,
         title: const Text("VIRTUAL LEARNING APP"),
         actions: [
@@ -63,19 +84,24 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MyDrawer(),
-      body: _pages[index],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        children: _pages,
+      ),
       bottomNavigationBar: Container(
-        color: Colors.deepPurple,
+        color: Color.fromARGB(255, 159, 47, 173),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
           child: GNav(
             gap: 8,
-            backgroundColor: Colors.deepPurple,
-            color: Colors.white,
+            backgroundColor: Colors.white,
+            color: Color.fromARGB(255, 159, 47, 173),
             activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
+            tabBackgroundColor: Color.fromARGB(255, 153, 104, 151),
             padding: const EdgeInsets.all(16),
-            onTabChange: _navigateBottomBar,
+            onTabChange: _onTabChange,
+            selectedIndex: _currentIndex,
             tabs: const [
               GButton(icon: Icons.home, text: 'Home'),
               GButton(icon: Icons.message, text: "Chat"),

@@ -10,7 +10,7 @@ class DetailPage extends StatefulWidget {
   final String subtitle;
   final String url;
 
-  const DetailPage({
+  const DetailPage({super.key, 
     required this.title,
     required this.subtitle,
     required this.url,

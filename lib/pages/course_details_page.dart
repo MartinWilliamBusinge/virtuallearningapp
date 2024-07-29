@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
-import 'past_papers.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CourseDetailsPage extends StatelessWidget {
   final String courseName;
   final String courseCode;
-   final List<String> pastPapers;
+  final String description;
+  final String lecturer;
+  final String schedule;
+  final String pdfUrl; // URL or path to the PDF
 
+  const CourseDetailsPage({super.key, 
+    required this.courseName,
+    required this.courseCode,
+    required this.description,
+    required this.lecturer,
+    required this.schedule,
+    required this.pdfUrl,
+     });
 
-
-  CourseDetailsPage({required this.courseName, required this.courseCode,required this.pastPapers});
+  Future<void> _launchPDF(String url) async {
+    if (await canLaunchUrl(url as Uri)) {
+      await launchUrl(url as Uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   //@override
   //Widget build(BuildContext context) {
@@ -38,65 +54,52 @@ class CourseDetailsPage extends StatelessWidget {
         title: Text(courseName),
         backgroundColor: Colors.blueGrey,
       ),
-      backgroundColor: Colors.blueGrey,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Text(
               'Course Code: $courseCode',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16.0),
+           const SizedBox(height: 10),
+           const Text(
+              'Description:',
+              style:  TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             Text(
-              'Course Description:',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              description,
+              style: const TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 8.0),
+           const SizedBox(height: 10),
+           const Text(
+              'Lecturer:',
+              style:  TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             Text(
-              'This is a placeholder for the course description.',
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.white,
-              ),
+              lecturer,
+              style: const TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 16.0),
+           const SizedBox(height: 10),
+           const Text(
+              'Schedule:',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             Text(
-              'Past Papers:',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              schedule,
+              style: const TextStyle(fontSize: 16),
             ),
-            ...pastPapers.map((paper) => ListTile(
-              title: Text(
-                paper,
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                // Navigate to the past paper details page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PastPaperDetailsPage(paperTitle: paper),
-                  ),
-                );
+           const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _launchPDF(pdfUrl); // Open the PDF when button is pressed
               },
-            )).toList(),
+              child: const Text('View Course PDF'),
+            ),
           ],
         ),
       ),
     );
-  }
 }
  

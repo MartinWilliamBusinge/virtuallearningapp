@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Import the course details page
+import 'package:virtuallearningapp/course_pages/automata_page.dart';
+import 'package:virtuallearningapp/course_pages/research_methodology_page.dart';
+import 'package:virtuallearningapp/course_pages/software_verification_page.dart';
 
 class YearTwoSemesterTwoPage extends StatelessWidget {
   const YearTwoSemesterTwoPage({super.key});
@@ -8,59 +10,50 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER TWO")),
-        backgroundColor: Colors.blueGrey,
-         ),
-      backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER TWO", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
+      ),
+      backgroundColor: const Color.fromARGB(255, 248, 248, 248),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('Operating-Systems'),
-            subtitle: const Text('course code: CSC1102'),
+            title: const Text('RESEARCH METHODOLOGY',style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
-              Navigator.push(
+               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Operating Systems',
-                    courseCode: 'CSC1102',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-    ),
+                  builder: (context) => const ResearchMethodologyPage(
+                    
+                  ),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('Probability and Statistics'),
-            subtitle: const Text('course code: CSC1103'),
+            title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 2210', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
               Navigator.push(
-                context,
+   context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Probability and Statistics',
-                    courseCode: 'CSC1103',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-     ),
+                  builder: (context) => const AutomataPage(
+                    
+                  ),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('Data Structures and Algorithms'),
-            subtitle: const Text('course code: CSK1101'),
+            title: const Text('SOFTWARE VERIFICATION', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSK 1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
-              // Navigate to CourseDetailsPage with specific details
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Data Structures and Algorithms',
-                    courseCode: 'CSK1101',
-                    pastPapers: ['Paper 1 - 2022', 'Paper 2 - 2021'],
-        ),
+                 MaterialPageRoute(
+                  builder: (context) => const SoftwareVerificationPage(
+                    
+                  ),
                 ),
               );
             },
@@ -69,4 +62,4 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
       ),
     );
   }
-}                                              
+}                                                                                                       

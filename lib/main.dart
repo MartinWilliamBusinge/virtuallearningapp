@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:virtuallearningapp/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -7,11 +8,27 @@ import 'package:provider/provider.dart';
 import 'package:virtuallearningapp/components/theme_notifier.dart';
 import 'package:virtuallearningapp/components/language_notifier.dart';
 
+
+// Initialize local notifications
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
+  // Initialize local notifications
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  const InitializationSettings initializationSettings =
+      InitializationSettings(
+          android: initializationSettingsAndroid,
+      );
+
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
   runApp(
     MultiProvider(
@@ -34,7 +51,6 @@ class MyApp extends StatelessWidget {
     return Consumer2<ThemeNotifier, LanguageNotifier>(
       builder: (context, themeNotifier, languageNotifier, child) {
         return MaterialApp(
-          
           theme: themeNotifier.getTheme(),
           locale: languageNotifier.currentLocale,
           supportedLocales: const [
@@ -55,7 +71,6 @@ class MyApp extends StatelessWidget {
           ],
           debugShowCheckedModeBanner: false,
           home: const AuthPage(), // Start with the authentication page
-
         );
       },
     );

@@ -34,7 +34,7 @@ class _GeminiChatPageState extends State<GeminiChatPage> {
         .get();
     setState(() {
       _messages.addAll(snapshot.docs
-          .map((doc) => Message.fromJson(doc.data() as Map<String, dynamic>))
+          .map((doc) => Message.fromJson(doc.data()))
           .toList());
     });
   }
