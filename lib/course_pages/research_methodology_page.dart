@@ -25,11 +25,11 @@ class _ResearchMethodologyPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Research Methodology",
+    "Research Problem and Hypothesis",
+    "Literature Review",
+    "Research Design",
+    "Data Collection Methods",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -349,7 +349,7 @@ class _ResearchMethodologyPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'The Research Methodology in Computer Science course aims to introduce students to the principles, techniques, and processes involved in conducting scientific research in the field of computer science. The course covers the entire research process, from problem formulation to data analysis, and emphasizes the development of critical thinking and analytical skills necessary for producing high-quality research.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

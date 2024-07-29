@@ -10,15 +10,15 @@ class YearTwoSemesterOnePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER ONE")),
-        backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER ONE", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: const Color.fromARGB(255, 242, 243, 243),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('ARTIFICIAL INTELLIGENCE'),
-            subtitle: const Text('course code: CSC1102'),
+            title: const Text('ARTIFICIAL INTELLIGENCE', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,
@@ -31,8 +31,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('COMPUTER NETWORKS'),
-            subtitle: const Text('course code: CSC1103'),
+            title: const Text('COMPUTER NETWORKS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC1103', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,
@@ -45,8 +45,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('DISCRETE MATH'),
-            subtitle: const Text('course code: CSK1101'),
+            title: const Text('DISCRETE MATH', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSK1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,

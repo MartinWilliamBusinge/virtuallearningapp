@@ -10,15 +10,15 @@ class YearOneSemesterOnePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER ONE")),
-        backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER ONE", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Color.fromARGB(255, 238, 240, 240),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('OBJECT-ORIENTED PROGRAMMING'),
-            subtitle: const Text('COURSE CODE: CSC1102'),
+            title: const Text('OBJECT-ORIENTED PROGRAMMING', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSC1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,
@@ -29,8 +29,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('COMPUTER ARCHITECTURE'),
-            subtitle: const Text('COURSE CODE: CSC1103'),
+            title: const Text('COMPUTER ARCHITECTURE', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSC1103', style: TextStyle(color: Color.fromARGB(255, 49, 48, 48))),
             onTap: () {
               Navigator.push(
                 context,
@@ -41,8 +41,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('COMMUNICATION SKILLS'),
-            subtitle: const Text('COURSE CODE: CSK1101'),
+            title: const Text('COMMUNICATION SKILLS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('COURSE CODE: CSK1101', style: TextStyle(color: Color.fromARGB(255, 24, 23, 23))),
             onTap: () {
               Navigator.push(
                 context,

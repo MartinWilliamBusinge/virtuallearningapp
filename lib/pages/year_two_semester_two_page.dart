@@ -10,15 +10,15 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER TWO")),
-        backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER TWO", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: const Color.fromARGB(255, 248, 248, 248),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('RESEARCH METHODOLOGY'),
-            subtitle: const Text('course code: CSC 1102'),
+            title: const Text('RESEARCH METHODOLOGY',style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
                Navigator.push(
                 context,
@@ -31,8 +31,8 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY'),
-            subtitle: const Text('course code: CSC 2210'),
+            title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 2210', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
    context,
@@ -45,8 +45,8 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('SOFTWARE VERIFICATION'),
-            subtitle: const Text('course code: CSK 1101'),
+            title: const Text('SOFTWARE VERIFICATION', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSK 1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,

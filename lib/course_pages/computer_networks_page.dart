@@ -25,11 +25,11 @@ class _ComputerNetworksPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Computer Networks",
+    "Network Models and Architectures",
+    "Network Layers",
+    "Network Management and Monitoring",
+    "Emerging Trends in Networking",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -349,7 +349,7 @@ class _ComputerNetworksPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'The Computer Networks course provides an in-depth study of the fundamental concepts, principles, and practices of computer networking. The course aims to equip students with a solid understanding of how data is transmitted across networks, the architecture and protocols that underpin these networks, and the critical issues in network security and management.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

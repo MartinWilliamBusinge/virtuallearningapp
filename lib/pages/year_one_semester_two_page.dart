@@ -11,15 +11,15 @@ class YearOneSemesterTwoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("SEMESTER TWO")),
-        backgroundColor: Colors.blueGrey,
+        title: const Center(child: Text("SEMESTER TWO", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
+        backgroundColor: Color.fromARGB(255, 159, 47, 173),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: const Color.fromARGB(255, 242, 243, 243),
       body: ListView(
         children: [
           ListTile(
-            title: const Text('OPERATING SYSTEMS'),
-            subtitle: const Text('course code: CSC 1102'),
+            title: const Text('OPERATING SYSTEMS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
                Navigator.push(
                 context,
@@ -32,8 +32,8 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('PROBABILITY AND STATISTICS'),
-            subtitle: const Text('course code: CSC 1103'),
+            title: const Text('PROBABILITY AND STATISTICS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSC 1103', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
    context,
@@ -46,8 +46,8 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('DATA STRUCTURES AND ALGORITHMS'),
-            subtitle: const Text('course code: CSK 1101'),
+            title: const Text('DATA STRUCTURES AND ALGORITHMS', style: TextStyle(color: Colors.red)),
+            subtitle: const Text('course code: CSK 1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
             onTap: () {
               Navigator.push(
                 context,
