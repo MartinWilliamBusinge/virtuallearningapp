@@ -79,4 +79,13 @@ class ChatService {
       return null;
     }
   }
+
+  // Listen for new messages
+  Stream<QuerySnapshot> getNewMessagesStream(String userID) {
+    return _firestore
+        .collection("chat_rooms")
+        .where("users", arrayContains: userID)
+        .snapshots();
+  }
 }
+

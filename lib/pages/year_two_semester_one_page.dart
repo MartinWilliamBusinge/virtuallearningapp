@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Adjust the import path accordingly
+import 'package:virtuallearningapp/course_pages/artificial_intelligence_page.dart';
+import 'package:virtuallearningapp/course_pages/computer_networks_page.dart';
+import 'package:virtuallearningapp/course_pages/discrete_math_page.dart';
 
 class YearTwoSemesterOnePage extends StatelessWidget {
   const YearTwoSemesterOnePage({super.key});
@@ -21,13 +23,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Artificial Intelligence',
-                    courseCode: 'CSC1102',
-                    description: 'Introduction to Artificial Intelligence.',
-                    lecturer: 'Prof. John Doe',
-                    schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
-                    pdfUrl: 'https://example.com/path_to_pdf.pdf',
+                  builder: (context) => const ArtificialIntelligencePage(
+                    
                   ),
                 ),
               );
@@ -40,13 +37,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Computer Networks',
-                    courseCode: 'CSC1103',
-                    description: 'Study of Computer Networks.',
-                    lecturer: 'Dr. Ngubiri',
-                    schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf2.pdf',
+                  builder: (context) => const ComputerNetworksPage(
+                    
                   ),
                 ),
               );
@@ -59,14 +51,8 @@ class YearTwoSemesterOnePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Discrete Math',
-                    courseCode: 'CSK1101',
-                    description:
-                        'Discrete Math for academic and professional Learning.',
-                    lecturer: ' Mr Kizito',
-                    schedule: 'Fridays, 10:00 AM - 12:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf3.pdf',
+                  builder: (context) => const DiscreteMathPage(
+                    
                   ),
                 ),
               );

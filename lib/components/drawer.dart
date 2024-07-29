@@ -188,7 +188,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     text: " S E T T I N G S ",
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SettingsPage(),
+                        builder: (context) =>  const SettingsPage(),
                       ));
                     },
                   ),

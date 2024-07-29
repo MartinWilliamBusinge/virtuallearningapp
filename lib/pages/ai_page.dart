@@ -5,6 +5,7 @@ class AIPage extends StatefulWidget {
   const AIPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AIPageState createState() => _AIPageState();
 }
 

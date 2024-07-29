@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Adjust the import path accordingly
+import 'package:virtuallearningapp/course_pages/automata_page.dart';
+import 'package:virtuallearningapp/course_pages/research_methodology_page.dart';
+import 'package:virtuallearningapp/course_pages/software_verification_page.dart';
 
 class YearTwoSemesterTwoPage extends StatelessWidget {
   const YearTwoSemesterTwoPage({super.key});
@@ -16,39 +18,27 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('RESEARCH METHODOLOGY'),
-            subtitle: const Text('course code: CSC1102'),
+            subtitle: const Text('course code: CSC 1102'),
             onTap: () {
                Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Research Methodology',
-                    courseCode: 'CSC1102',
-                    description:
-                        'Introduction to Research Methodology.',
-                    lecturer: 'Prof. John Doe',
-                    schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
-                    pdfUrl: 'https://example.com/path_to_pdf.pdf',
+                  builder: (context) => const ResearchMethodologyPage(
+                    
                   ),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('ROBOTICS'),
-            subtitle: const Text('course code: CSC1103'),
+            title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY'),
+            subtitle: const Text('course code: CSC 2210'),
             onTap: () {
               Navigator.push(
    context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Robotics',
-                    courseCode: 'CSC1103',
-                    description:
-                        'Study of Robotics.',
-                    lecturer: 'Dr. Ngubiri',
-                    schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf2.pdf',
+                  builder: (context) => const AutomataPage(
+                    
                   ),
                 ),
               );
@@ -56,19 +46,13 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('SOFTWARE VERIFICATION'),
-            subtitle: const Text('course code: CSK1101'),
+            subtitle: const Text('course code: CSK 1101'),
             onTap: () {
               Navigator.push(
                 context,
                  MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Software Verification',
-                    courseCode: 'CSK1101',
-                    description:
-                        'Software Verification for academic and professional Learning.',
-                    lecturer: ' Mr Kizito',
-                    schedule: 'Fridays, 10:00 AM - 12:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf3.pdf',
+                  builder: (context) => const SoftwareVerificationPage(
+                    
                   ),
                 ),
               );

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:virtuallearningapp/components/my_textfield.dart';
 import 'package:virtuallearningapp/services/auth_services.dart';
@@ -49,6 +50,14 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
   void initState() {
     super.initState();
 
+    // Initialize local notifications
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    const InitializationSettings initializationSettings =
+        InitializationSettings(
+            android: initializationSettingsAndroid);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
     // add listener to focus node
     myFocusNode.addListener(() {
       if (myFocusNode.hasFocus) {
@@ -60,6 +69,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     });
 
     _fetchReceiverName();
+    _listenForNewMessages();
   }
 
   Future<void> _fetchReceiverName() async {
@@ -129,7 +139,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     bool isSentByMe = data['senderID'] == _authService.getCurrentUser()?.uid;
 
     DateTime timestamp = (data['timestamp'] as Timestamp).toDate();
-  String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(timestamp);
+    String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(timestamp);
 
     return Align(
       alignment: isSentByMe ? Alignment.centerRight : Alignment.centerLeft,
@@ -150,7 +160,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
             ),
             const SizedBox(height: 5),
             Text(
-              formattedDate, 
+              formattedDate,
               style: TextStyle(
                 color: isSentByMe ? Colors.white70 : Colors.black54,
                 fontSize: 10,
@@ -178,7 +188,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
           ),
           Container(
             decoration: const BoxDecoration(
-              color: Colors.green,
+              color: Colors.deepPurple,
               shape: BoxShape.circle,
             ),
             margin: const EdgeInsets.only(right: 25),
@@ -192,6 +202,39 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
           ),
         ],
       ),
+    );
+  }
+
+  void _listenForNewMessages() {
+    final String currentUserID = _authService.getCurrentUser()!.uid;
+    _chatService.getNewMessagesStream(currentUserID).listen((snapshot) {
+      for (var doc in snapshot.docs) {
+        var data = doc.data() as Map<String, dynamic>;
+        if (data['receiverID'] == currentUserID && !data['isRead']) {
+          _showNotification(data['message']);
+        }
+      }
+    });
+  }
+
+  Future<void> _showNotification(String message) async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'new_message_channel', // id
+      'New Messages', // title
+      channelDescription: 'Notification channel for new messages',
+      importance: Importance.max,
+      priority: Priority.high,
+      ticker: 'ticker',
+    );
+    const NotificationDetails platformChannelSpecifics =
+        NotificationDetails(android: androidPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(
+      0, // notification id
+      'New Message',
+      message,
+      platformChannelSpecifics,
+      payload: 'New Message Payload',
     );
   }
 
@@ -217,3 +260,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     );
   }
 }
+
+// Initialize local notifications
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
