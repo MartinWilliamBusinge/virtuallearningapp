@@ -1,6 +1,8 @@
   
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Adjust the import path accordingly
+import 'package:virtuallearningapp/course_pages/data_structures_page.dart';
+import 'package:virtuallearningapp/course_pages/operating_systems_page.dart';
+import 'package:virtuallearningapp/course_pages/probability_and_statistics_page.dart';
 
 class YearOneSemesterTwoPage extends StatelessWidget {
   const YearOneSemesterTwoPage({super.key});
@@ -17,19 +19,13 @@ class YearOneSemesterTwoPage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('OPERATING SYSTEMS'),
-            subtitle: const Text('course code: CSC1102'),
+            subtitle: const Text('course code: CSC 1102'),
             onTap: () {
                Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Operating Systems',
-                    courseCode: 'CSC1102',
-                    description:
-                        'Introduction to Operating Systems.',
-                    lecturer: 'Prof. John Doe',
-                    schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
-                    pdfUrl: 'https://example.com/path_to_pdf.pdf',
+                  builder: (context) => const OperatingSystemsPage(
+                    
                   ),
                 ),
               );
@@ -37,19 +33,13 @@ class YearOneSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('PROBABILITY AND STATISTICS'),
-            subtitle: const Text('course code: CSC1103'),
+            subtitle: const Text('course code: CSC 1103'),
             onTap: () {
               Navigator.push(
    context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Probability and Statistics',
-                    courseCode: 'CSC1103',
-                    description:
-                        'Study of Probability and Statistics.',
-                    lecturer: 'Dr. Ngubiri',
-                    schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf2.pdf',
+                  builder: (context) => const ProbabilityAndStatisticsPage(
+                    
                   ),
                 ),
               );
@@ -57,19 +47,13 @@ class YearOneSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('DATA STRUCTURES AND ALGORITHMS'),
-            subtitle: const Text('course code: CSK1101'),
+            subtitle: const Text('course code: CSK 1101'),
             onTap: () {
               Navigator.push(
                 context,
                  MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Data Structures and Algorithms',
-                    courseCode: 'CSK1101',
-                    description:
-                        'Data Structures and Algorithms for academic and professional Learning.',
-                    lecturer: 'Mr Kizito ',
-                    schedule: 'Fridays, 10:00 AM - 12:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf3.pdf',
+                  builder: (context) => const DataStructuresPage(
+                    
                   ),
                 ),
               );

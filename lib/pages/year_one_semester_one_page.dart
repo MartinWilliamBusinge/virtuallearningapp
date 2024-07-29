@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'course_details_page.dart'; // Adjust the import path accordingly
+import 'package:virtuallearningapp/course_pages/communication_skills_page.dart';
+import 'package:virtuallearningapp/course_pages/computer_architecture_page.dart';
+import 'package:virtuallearningapp/course_pages/opp_page.dart';
 
 class YearOneSemesterOnePage extends StatelessWidget {
   const YearOneSemesterOnePage({super.key});
@@ -18,18 +20,10 @@ class YearOneSemesterOnePage extends StatelessWidget {
             title: const Text('OBJECT-ORIENTED PROGRAMMING'),
             subtitle: const Text('COURSE CODE: CSC1102'),
             onTap: () {
-               Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Object-Oriented Programming',
-                    courseCode: 'CSC1102',
-                    description:
-                        'Introduction to object-oriented programming principles and practices.',
-                    lecturer: 'Mr Lwomwa Joseph',
-                    schedule: 'Mondays and Wednesdays, 9:00 AM - 11:00 AM',
-                    pdfUrl: 'https://example.com/path_to_pdf.pdf',
-                  ),
+                  builder: (context) => const OOPPage(),
                 ),
               );
             },
@@ -39,17 +33,9 @@ class YearOneSemesterOnePage extends StatelessWidget {
             subtitle: const Text('COURSE CODE: CSC1103'),
             onTap: () {
               Navigator.push(
-   context,
+                context,
                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Computer Architecture',
-                    courseCode: 'CSC1103',
-                    description:
-                        'Study of computer organization and architecture.',
-                    lecturer: 'Mrs Babrah',
-                    schedule: 'Tuesdays and Thursdays, 1:00 PM - 3:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf2.pdf',
-                  ),
+                  builder: (context) => const ComputerArchitecturePage(),
                 ),
               );
             },
@@ -60,16 +46,8 @@ class YearOneSemesterOnePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                 MaterialPageRoute(
-                  builder: (context) => CourseDetailsPage(
-                    courseName: 'Communication Skills',
-                    courseCode: 'CSK1101',
-                    description:
-                        'Developing effective communication skills for academic and professional Learning.',
-                    lecturer: 'Mrs Katushemererwe Fridah',
-                    schedule: 'Fridays, 10:00 AM - 12:00 PM',
-                    pdfUrl: 'https://example.com/path_to_pdf3.pdf',
-                  ),
+                MaterialPageRoute(
+                  builder: (context) => const CommunicationSkillsPage(),
                 ),
               );
             },
@@ -78,4 +56,4 @@ class YearOneSemesterOnePage extends StatelessWidget {
       ),
     );
   }
-}             
+}

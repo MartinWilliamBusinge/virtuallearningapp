@@ -9,7 +9,7 @@ class CourseDetailsPage extends StatelessWidget {
   final String schedule;
   final String pdfUrl; // URL or path to the PDF
 
-  CourseDetailsPage({
+  const CourseDetailsPage({super.key, 
     required this.courseName,
     required this.courseCode,
     required this.description,
@@ -19,8 +19,8 @@ class CourseDetailsPage extends StatelessWidget {
      });
 
   Future<void> _launchPDF(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(url as Uri)) {
+      await launchUrl(url as Uri);
     } else {
       throw 'Could not launch $url';
     }

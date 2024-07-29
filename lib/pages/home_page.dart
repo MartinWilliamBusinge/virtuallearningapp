@@ -17,24 +17,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 0;
+  int _currentIndex = 0;
   final user = FirebaseAuth.instance.currentUser!;
+  late PageController _pageController;
 
   final List<Widget> _pages = [
     const UserHomePage(),
-    ChatPage(),
+    const ChatPage(),
     const GeminiChatPage(),
     const SettingsPage(),
   ];
 
-  // sign user out method
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _currentIndex);
   }
 
-  void _navigateBottomBar(int newIndex) {
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onTabChange(int index) {
     setState(() {
-      index = newIndex;
+      _currentIndex = index;
+    });
+    _pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentIndex = index;
     });
   }
 
@@ -42,6 +58,11 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => const AccountPage(),
     ));
+  }
+
+  // sign user out method
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
   }
 
   @override
@@ -63,7 +84,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MyDrawer(),
-      body: _pages[index],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        children: _pages,
+      ),
       bottomNavigationBar: Container(
         color: Colors.deepPurple,
         child: Padding(
@@ -75,7 +100,8 @@ class _HomePageState extends State<HomePage> {
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade800,
             padding: const EdgeInsets.all(16),
-            onTabChange: _navigateBottomBar,
+            onTabChange: _onTabChange,
+            selectedIndex: _currentIndex,
             tabs: const [
               GButton(icon: Icons.home, text: 'Home'),
               GButton(icon: Icons.message, text: "Chat"),
