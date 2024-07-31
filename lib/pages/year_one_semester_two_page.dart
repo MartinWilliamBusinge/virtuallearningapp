@@ -12,14 +12,19 @@ class YearOneSemesterTwoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("SEMESTER TWO", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
-        backgroundColor: Color.fromARGB(255, 159, 47, 173),
+        backgroundColor:const Color.fromARGB(255, 159, 47, 173),
       ),
       backgroundColor: const Color.fromARGB(255, 242, 243, 243),
       body: ListView(
         children: [
           ListTile(
+<<<<<<< HEAD
             title: const Text('OPERATING SYSTEMS', style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSC 1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
+=======
+            title: const Text('OPERATING SYSTEMS'),
+            subtitle: const Text('Course Code: CSC 1102'),
+>>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
                Navigator.push(
                 context,
@@ -32,8 +37,13 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
+<<<<<<< HEAD
             title: const Text('PROBABILITY AND STATISTICS', style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSC 1103', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
+=======
+            title: const Text('PROBABILITY AND STATISTICS'),
+            subtitle: const Text('Course Code: CSC 1103'),
+>>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
               Navigator.push(
    context,
@@ -46,8 +56,13 @@ class YearOneSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
+<<<<<<< HEAD
             title: const Text('DATA STRUCTURES AND ALGORITHMS', style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSK 1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
+=======
+            title: const Text('DATA STRUCTURES AND ALGORITHMS'),
+            subtitle: const Text('Course Code: CSK 1101'),
+>>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
               Navigator.push(
                 context,

@@ -32,7 +32,7 @@ class _OperatingSystemsPageState
     "Files System",
     "Security and Protection",
     "Advanced Topics",
-    "Case Studies"
+    "Case Studies",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
