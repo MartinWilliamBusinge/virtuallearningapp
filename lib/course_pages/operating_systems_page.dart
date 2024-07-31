@@ -33,6 +33,9 @@ class _OperatingSystemsPageState
     "Security and Protection",
     "Advanced Topics",
     "Case Studies",
+    "Distributed systems",
+    "Input/Output Systems",
+    "Operating System Structure",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -294,7 +297,7 @@ class _OperatingSystemsPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Mr. Peter'),
+          subtitle: const Text('Mr. Lule Emmanuel'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -352,7 +355,7 @@ class _OperatingSystemsPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course provides students with a comprehensive understanding of how operating systems function, their design principles, and practical experience in system level programming',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

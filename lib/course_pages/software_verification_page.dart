@@ -296,7 +296,7 @@ class _SoftwareVerificationPageState extends State<SoftwareVerificationPage> {
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr. Jonathan '),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action

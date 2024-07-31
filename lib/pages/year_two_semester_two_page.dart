@@ -17,13 +17,8 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-<<<<<<< HEAD
             title: const Text('RESEARCH METHODOLOGY',style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSC 1102', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
-=======
-            title: const Text('RESEARCH METHODOLOGY'),
-            subtitle: const Text('Course Code: CSC 1102'),
->>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
                Navigator.push(
                 context,
@@ -36,13 +31,8 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-<<<<<<< HEAD
             title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY', style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSC 2210', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
-=======
-            title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY'),
-            subtitle: const Text('Course Code: CSC 2210'),
->>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
               Navigator.push(
    context,
@@ -55,13 +45,8 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
             },
           ),
           ListTile(
-<<<<<<< HEAD
             title: const Text('SOFTWARE VERIFICATION', style: TextStyle(color: Colors.red)),
             subtitle: const Text('course code: CSK 1101', style: TextStyle(color: Color.fromARGB(255, 44, 43, 43))),
-=======
-            title: const Text('SOFTWARE VERIFICATION'),
-            subtitle: const Text('Course Code: CSK 1101'),
->>>>>>> e3c2a8be09670611be810d656783331729505269
             onTap: () {
               Navigator.push(
                 context,

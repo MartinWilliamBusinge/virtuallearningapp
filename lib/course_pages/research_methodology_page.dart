@@ -26,21 +26,10 @@ class _ResearchMethodologyPageState
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
     "Introduction to Research Methodology",
-<<<<<<< HEAD
     "Research Problem and Hypothesis",
     "Literature Review",
     "Research Design",
     "Data Collection Methods",
-=======
-    "Research Design",
-    "Qualitative Research Methods",
-    "Quantitative Research Methods",
-    "Literature Review",
-    "Data collection and analysis",
-    "Research Documentation and Reporting",
-    "Advanced Topics",
-    ""
->>>>>>> e3c2a8be09670611be810d656783331729505269
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -360,11 +349,7 @@ class _ResearchMethodologyPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-<<<<<<< HEAD
-                      'The Research Methodology in Computer Science course aims to introduce students to the principles, techniques, and processes involved in conducting scientific research in the field of computer science. The course covers the entire research process, from problem formulation to data analysis, and emphasizes the development of critical thinking and analytical skills necessary for producing high-quality research.',
-=======
                       'This course provides students with a comprehensive understanding of the principles and practices of conducting research in computer science . it covers the various research methods and emphasizes both quantitative and qualitative research methods, focusing on the development of skills necessary to evaluate existing research. This course is essential for students aiming to undertake research projects, contribute to academic and industrial research.',
->>>>>>> e3c2a8be09670611be810d656783331729505269
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),
