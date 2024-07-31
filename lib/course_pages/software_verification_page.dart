@@ -24,11 +24,17 @@ class _SoftwareVerificationPageState extends State<SoftwareVerificationPage> {
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Software Verification",
+    "Formal Methods",
+    "Static Analysis",
+    "Dynamic Analysis",
+    "Model Checking",
+    "Theorem Proving",
+    "Software Testing",
+    "Verification of Concurrent and Distributed Systems",
+    "Verification Tools and Frameworks",
+    "Ethical and Legal Issues",
+    "Advanced Topics",
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -348,7 +354,7 @@ class _SoftwareVerificationPageState extends State<SoftwareVerificationPage> {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course focuses on methods and techniques used to ensure that software systems meet their specifications and function correctly. This course is essential for students to understand how to develop reliable and error-free software. ',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

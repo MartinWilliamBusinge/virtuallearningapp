@@ -25,11 +25,15 @@ class _AutomataPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Automata Theory",
+    "Finite Automata",
+    "Regular languages and grammars ",
+    "Turing machines",
+    "context-free grammars and languages",
+    "computational complexity",
+    "NP-Completeness",
+    "Applications and implications",
+    "Advanced topics in complexity"
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -349,7 +353,7 @@ class _AutomataPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course explores the theoretical foudations of computer science, focusing on automata theory, formal languages, and computational complexity. students will study various computational models, such as finite automata, pushdown automata and Turing machines and learn about their corresponding lanfuage classes. B y the end of this course, students will understand the limits of computation, efficiency of algorithms, and the classification of computational problems.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

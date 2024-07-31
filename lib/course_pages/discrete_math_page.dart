@@ -25,11 +25,16 @@ class _DiscreteMathPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Foundations",
+    "Combinatorics",
+    "Algorithms and Complexity",
+    "Graph Theory",
+    "Number Theory",
+    "Logic and Boolean Algebra",
+    "Relations and Functions",
+    "Trees and their Applications",
+    "Mathematical Reasoning and Proof Techniques",
+
   ];
 
   late Future<void> _loadTopicCompletionFuture;
