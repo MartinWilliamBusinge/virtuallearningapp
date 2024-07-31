@@ -11,7 +11,7 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("SEMESTER TWO", style: TextStyle(color: Color.fromARGB(255, 247, 245, 245)))),
-        backgroundColor: Color.fromARGB(255, 159, 47, 173),
+        backgroundColor: const Color.fromARGB(255, 159, 47, 173),
       ),
       backgroundColor: const Color.fromARGB(255, 248, 248, 248),
       body: ListView(

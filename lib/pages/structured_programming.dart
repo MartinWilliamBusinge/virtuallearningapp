@@ -16,7 +16,7 @@ class DetailPage extends StatefulWidget {
     required this.url,
   });
   @override
-  _DetailPageState createState() => _DetailPageState();
+  State<DetailPage> createState() => _DetailPageState();
 
 }
 

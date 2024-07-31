@@ -68,9 +68,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 248, 245, 248),
+      backgroundColor: const Color.fromARGB(255, 248, 245, 248),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 159, 47, 173),
+        backgroundColor: const Color.fromARGB(255, 159, 47, 173),
         elevation: 0,
         title: const Text("VIRTUAL LEARNING APP"),
         actions: [
@@ -90,15 +90,15 @@ class _HomePageState extends State<HomePage> {
         children: _pages,
       ),
       bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 159, 47, 173),
+        color: const Color.fromARGB(255, 159, 47, 173),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
           child: GNav(
             gap: 8,
             backgroundColor: Colors.white,
-            color: Color.fromARGB(255, 159, 47, 173),
+            color: const Color.fromARGB(255, 159, 47, 173),
             activeColor: Colors.white,
-            tabBackgroundColor: Color.fromARGB(255, 153, 104, 151),
+            tabBackgroundColor: const Color.fromARGB(255, 153, 104, 151),
             padding: const EdgeInsets.all(16),
             onTabChange: _onTabChange,
             selectedIndex: _currentIndex,

@@ -32,7 +32,7 @@ class _MyDrawerState extends State<MyDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: (Color.fromARGB(255, 245, 243, 244)),
+        color:  ( const Color.fromARGB(255, 245, 243, 244)),
         child: Column(
           children: [
             DrawerHeader(
@@ -41,7 +41,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   "       “REMEMBER\"\n Being a student is easy.\nLearning requires actual work.” \n     *William Crawford*",
                   style: GoogleFonts.bonaNova(
                     textStyle:
-                        TextStyle(fontSize: 18, color: Color.fromARGB(255, 146, 80, 167), fontWeight: FontWeight.bold),
+                     const   TextStyle(fontSize: 18, color: Color.fromARGB(255, 146, 80, 167), fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

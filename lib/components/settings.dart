@@ -14,7 +14,7 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Center(child: Text("S E T T I N G S")),
         backgroundColor: Colors.transparent,
-        foregroundColor: Color.fromARGB(255, 167, 82, 141),
+        foregroundColor: const Color.fromARGB(255, 167, 82, 141),
         elevation: 0,
       ),
       body: ListView(
@@ -23,7 +23,7 @@ class SettingsPage extends StatelessWidget {
             margin:
                 const EdgeInsets.all(3.0), // Adds margin around the container
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 153, 59, 117),
+              color: const Color.fromARGB(255, 153, 59, 117),
               borderRadius: BorderRadius.circular(
                   10), // Adjust the value to get the desired roundness
             ),
@@ -43,7 +43,7 @@ class SettingsPage extends StatelessWidget {
             margin:
                 const EdgeInsets.all(3.0), // Adds margin around the container
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 150, 43, 123),
+              color: const Color.fromARGB(255, 150, 43, 123),
               borderRadius: BorderRadius.circular(
                   10), // Adjust the value to get the desired roundness
             ),
@@ -66,7 +66,7 @@ class SettingsPage extends StatelessWidget {
             margin:
                 const EdgeInsets.all(3.0), // Adds margin around the container
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 148, 49, 135),
+              color: const Color.fromARGB(255, 148, 49, 135),
               borderRadius: BorderRadius.circular(
                   10), // Adjust the value to get the desired roundness
             ),
@@ -99,7 +99,7 @@ class SettingsPage extends StatelessWidget {
             margin:
                 const EdgeInsets.all(3.0), // Adds margin around the container
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 145, 42, 122),
+              color: const Color.fromARGB(255, 145, 42, 122),
               borderRadius: BorderRadius.circular(
                   10), // Adjust the value to get the desired roundness
             ),
