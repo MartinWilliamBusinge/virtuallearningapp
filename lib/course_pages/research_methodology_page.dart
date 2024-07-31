@@ -25,11 +25,15 @@ class _ResearchMethodologyPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Research Methodology",
+    "Research Design",
+    "Qualitative Research Methods",
+    "Quantitative Research Methods",
+    "Literature Review",
+    "Data collection and analysis",
+    "Research Documentation and Reporting",
+    "Advanced Topics",
+    ""
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +295,7 @@ class _ResearchMethodologyPageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr.Jonathan'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +353,7 @@ class _ResearchMethodologyPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course provides students with a comprehensive understanding of the principles and practices of conducting research in computer science . it covers the various research methods and emphasizes both quantitative and qualitative research methods, focusing on the development of skills necessary to evaluate existing research. This course is essential for students aiming to undertake research projects, contribute to academic and industrial research.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

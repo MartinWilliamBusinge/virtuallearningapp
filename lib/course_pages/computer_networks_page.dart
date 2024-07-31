@@ -25,11 +25,16 @@ class _ComputerNetworksPageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to Computer Networks",
+    "network Models",
+    "physical Layer",
+    "Data link Layer",
+    "Network Layer",
+    "transport Layer",
+    "Application Layer",
+    "Network Security",
+    "Network Management and Monitoring ",
+    "Emerging Technologies"
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -349,7 +354,7 @@ class _ComputerNetworksPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course offers a comprehensive study of the principles,architecture,protocols and technologies that enable computer communication. The course provides a deep understanding of how data is transmitted across different types of networks (LANs),and (WANs)and the internet By the end of the course, students will have the knowledge and skills necessary to design, implement, manage, and secure modern computer networks. ',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

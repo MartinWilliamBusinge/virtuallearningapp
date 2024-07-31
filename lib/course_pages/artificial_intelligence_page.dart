@@ -25,11 +25,14 @@ class _ArtificialIntelligencePageState
 
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
-    "Introduction to Probability",
-    "Random Variables",
-    "Probability Distributions",
-    "Statistical Inference",
-    "Regression Analysis",
+    "Introduction to AI",
+    "Problem Solving and Search Algorithms",
+    "Probabiliostic Reasoning",
+    "Natural Language Processing",
+    "Artificial Neural Networks",
+    "Ethics in AI",
+    "AI in Robotics",
+    "AI Tools and Environments"
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -291,7 +294,7 @@ class _ArtificialIntelligencePageState
       children: [
         ListTile(
           title: const Text('Lecturer'),
-          subtitle: const Text('Dr. John Ngubiri'),
+          subtitle: const Text('Mr.John Kizito'),
           trailing: const Icon(Icons.contact_phone),
           onTap: () {
             // Handle contact action
@@ -349,7 +352,7 @@ class _ArtificialIntelligencePageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-                      'Description goes here ....',
+                      'This course introduces students to the fundamental concepts and techniques used in the development of intelligent systems. The course covers a broad range of topics. Students will gain a thorough understanding of the principles and practices that underlie AI technologies.',
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),

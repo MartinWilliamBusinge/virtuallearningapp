@@ -18,7 +18,7 @@ class YearTwoSemesterOnePage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('ARTIFICIAL INTELLIGENCE'),
-            subtitle: const Text('course code: CSC1102'),
+            subtitle: const Text('Course Code: CSC1102'),
             onTap: () {
               Navigator.push(
                 context,
@@ -32,7 +32,7 @@ class YearTwoSemesterOnePage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('COMPUTER NETWORKS'),
-            subtitle: const Text('course code: CSC1103'),
+            subtitle: const Text('Course Code: CSC1103'),
             onTap: () {
               Navigator.push(
                 context,
@@ -46,7 +46,7 @@ class YearTwoSemesterOnePage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('DISCRETE MATH'),
-            subtitle: const Text('course code: CSK1101'),
+            subtitle: const Text('Course Code: CSK1101'),
             onTap: () {
               Navigator.push(
                 context,

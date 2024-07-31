@@ -18,7 +18,7 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('RESEARCH METHODOLOGY'),
-            subtitle: const Text('course code: CSC 1102'),
+            subtitle: const Text('Course Code: CSC 1102'),
             onTap: () {
                Navigator.push(
                 context,
@@ -32,7 +32,7 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('AUTOMATA, COMPLEXITY AND COMPATIBILITY'),
-            subtitle: const Text('course code: CSC 2210'),
+            subtitle: const Text('Course Code: CSC 2210'),
             onTap: () {
               Navigator.push(
    context,
@@ -46,7 +46,7 @@ class YearTwoSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('SOFTWARE VERIFICATION'),
-            subtitle: const Text('course code: CSK 1101'),
+            subtitle: const Text('Course Code: CSK 1101'),
             onTap: () {
               Navigator.push(
                 context,

@@ -19,7 +19,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
         children: [
           ListTile(
             title: const Text('OPERATING SYSTEMS'),
-            subtitle: const Text('course code: CSC 1102'),
+            subtitle: const Text('Course Code: CSC 1102'),
             onTap: () {
                Navigator.push(
                 context,
@@ -33,7 +33,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('PROBABILITY AND STATISTICS'),
-            subtitle: const Text('course code: CSC 1103'),
+            subtitle: const Text('Course Code: CSC 1103'),
             onTap: () {
               Navigator.push(
    context,
@@ -47,7 +47,7 @@ class YearOneSemesterTwoPage extends StatelessWidget {
           ),
           ListTile(
             title: const Text('DATA STRUCTURES AND ALGORITHMS'),
-            subtitle: const Text('course code: CSK 1101'),
+            subtitle: const Text('Course Code: CSK 1101'),
             onTap: () {
               Navigator.push(
                 context,
