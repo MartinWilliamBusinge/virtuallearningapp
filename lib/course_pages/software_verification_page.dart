@@ -298,7 +298,7 @@ class _SoftwareVerificationPageState extends State<SoftwareVerificationPage> {
           title: const Text('Lecturer'),
           subtitle: const Text('Mr. Jonathan '),
           trailing: const Icon(Icons.contact_phone),
-          onTap: () {
+           onTap: () {
             // Handle contact action
           },
         ),
