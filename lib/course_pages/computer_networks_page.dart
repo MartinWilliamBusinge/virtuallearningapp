@@ -26,12 +26,6 @@ class _ComputerNetworksPageState
   Map<String, bool> topicCompletion = {};
   List<String> topics = [
     "Introduction to Computer Networks",
-<<<<<<< HEAD
-    "Network Models and Architectures",
-    "Network Layers",
-    "Network Management and Monitoring",
-    "Emerging Trends in Networking",
-=======
     "network Models",
     "physical Layer",
     "Data link Layer",
@@ -41,7 +35,6 @@ class _ComputerNetworksPageState
     "Network Security",
     "Network Management and Monitoring ",
     "Emerging Technologies"
->>>>>>> e3c2a8be09670611be810d656783331729505269
   ];
 
   late Future<void> _loadTopicCompletionFuture;
@@ -361,11 +354,7 @@ class _ComputerNetworksPageState
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const Text(
-<<<<<<< HEAD
-                      'The Computer Networks course provides an in-depth study of the fundamental concepts, principles, and practices of computer networking. The course aims to equip students with a solid understanding of how data is transmitted across networks, the architecture and protocols that underpin these networks, and the critical issues in network security and management.',
-=======
                       'This course offers a comprehensive study of the principles,architecture,protocols and technologies that enable computer communication. The course provides a deep understanding of how data is transmitted across different types of networks (LANs),and (WANs)and the internet By the end of the course, students will have the knowledge and skills necessary to design, implement, manage, and secure modern computer networks. ',
->>>>>>> e3c2a8be09670611be810d656783331729505269
                       style: TextStyle(fontSize: 14),
                     ),
                     const SizedBox(height: 16),
